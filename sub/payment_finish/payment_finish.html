@@ -1,12 +1,172 @@
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>결제 완료</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- CSS -->
     <link rel="stylesheet" href="css/payment_finish.css">
-    <title>Document</title>
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
 </head>
+
 <body>
-    
+
+<div class="container">
+
+    <!-- HEADER -->
+    <header class="header">
+
+        <a href="index.html" class="logo">
+            <img src="images/logo.png" alt="로고">
+        </a>
+
+        <button class="menu-btn" id="menuOpen" aria-label="메뉴 열기">
+            <i data-lucide="menu"></i>
+        </button>
+
+    </header>
+
+
+    <!-- SIDE MENU BACKGROUND -->
+    <div class="menu-overlay" id="menuOverlay"></div>
+
+    <!-- SIDE MENU -->
+    <nav class="side-menu" id="sideMenu">
+
+        <div class="side-menu-header">
+            <span>MENU</span>
+
+            <button class="menu-close" id="menuClose" aria-label="메뉴 닫기">
+                <i data-lucide="x"></i>
+            </button>
+        </div>
+
+        <ul class="side-menu-list">
+            <li><a href="../lists/list.html">리스트페이지</a></li>
+            <li><a href="../detail/detail.html">상세페이지</a></li>
+            <li><a href="../payment/payment.html">결제페이지</a></li>
+            <li><a href="../payment_finish/payment_finish.html">결제</a></li>
+        </ul>
+
+    </nav>
+
+
+    <!-- 결제 완료 제목 -->
+    <div class="complete-header">
+
+        <h1>결제 완료</h1>
+
+        <a href="../../index.html" class="complete-close" aria-label="닫기">
+            <i data-lucide="x"></i>
+        </a>
+
+    </div>
+
+
+    <main class="complete-content">
+
+        <!-- 완료 이미지 -->
+        <div class="complete-image">
+            <img src="images/complete.png" alt="결제 완료 이미지">
+        </div>
+
+
+        <!-- 완료 문구 -->
+        <p class="complete-message">
+            결제가 완료 되었습니다.
+        </p>
+
+
+        <!-- 주문 정보 -->
+        <section class="order-summary">
+
+            <h2>배달 주문1</h2>
+
+            <div class="order-details">
+
+                <div class="detail-row">
+                    <span>주문한 메뉴</span>
+                    <span>000떡볶이 x n개</span>
+                </div>
+
+                <div class="detail-row">
+                    <span>할인 금액</span>
+                    <span>00000원</span>
+                </div>
+
+                <div class="detail-row">
+                    <span>배달비</span>
+                    <span>00000원</span>
+                </div>
+
+                <div class="detail-row">
+                    <span>주문 일시</span>
+                    <span>2026.00.00 (요일) 00:00</span>
+                </div>
+
+            </div>
+
+
+            <!-- 총 금액 -->
+            <div class="total-price">
+
+                <strong>총 금액</strong>
+                <strong>00000원</strong>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+
+<!-- JAVASCRIPT -->
+<script>
+
+    // 사이드 메뉴 요소
+    const menuOpen = document.getElementById('menuOpen');
+    const menuClose = document.getElementById('menuClose');
+    const sideMenu = document.getElementById('sideMenu');
+    const menuOverlay = document.getElementById('menuOverlay');
+
+    // 메뉴 열기
+    menuOpen.addEventListener('click', function() {
+        sideMenu.classList.add('active');
+        menuOverlay.classList.add('active');
+        document.body.classList.add('menu-open');
+    });
+
+    // 메뉴 닫기
+    function closeMenu() {
+        sideMenu.classList.remove('active');
+        menuOverlay.classList.remove('active');
+        document.body.classList.remove('menu-open');
+    }
+
+    menuClose.addEventListener('click', closeMenu);
+    menuOverlay.addEventListener('click', closeMenu);
+
+    // 메뉴 링크 클릭
+    sideMenu.querySelectorAll('a').forEach(function(link) {
+        link.addEventListener('click', closeMenu);
+    });
+
+    // Lucide 아이콘 실행
+    lucide.createIcons();
+
+</script>
+
 </body>
 </html>
