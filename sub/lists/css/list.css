@@ -1,7 +1,7 @@
 
-/* =========================
-   기본 설정
-========================= */
+/* =====================================
+   GLOBAL
+===================================== */
 
 * {
     margin: 0;
@@ -10,8 +10,27 @@
 }
 
 body {
+    width: 100%;
+    min-height: 100vh;
+
+    background-color: #FFF3E5;
+
     font-family: 'Noto Sans KR', sans-serif;
     color: #000000;
+}
+
+body.menu-open {
+    overflow: hidden;
+}
+
+button,
+a {
+    font-family: inherit;
+}
+
+button {
+    border: none;
+    cursor: pointer;
 }
 
 a {
@@ -19,232 +38,278 @@ a {
     color: inherit;
 }
 
-button {
-    font-family: inherit;
-    cursor: pointer;
-    background: none;
+img {
+    display: block;
+    max-width: 100%;
 }
 
-body.menu-open {
-    overflow: hidden;
-}
-
-
-/* =========================
-   전체 컨테이너
-========================= */
-
-.container {
+.main-container {
     width: 100%;
-    max-width: 500px;
+    max-width: 393px;
+    min-height: 100vh;
+
     margin: 0 auto;
-    padding: 0 20px;
+
+    background-color: #FFF3E5;
 }
 
 
-/* =========================
+/* =====================================
    HEADER
-========================= */
+===================================== */
 
 .header {
     width: 100%;
     height: 60px;
+
+    padding: 0 20px;
+
     display: flex;
     align-items: center;
     justify-content: space-between;
+
+    background-color: #FFF3E5;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
 }
 
 .logo img {
-    display: block;
-    max-height: 40px;
-    width: auto;
+    width: 70px;
+    height: auto;
 }
 
 .menu-btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: none;
-}
-
-.menu-btn i {
     width: 24px;
     height: 24px;
-}
 
-
-/* =========================
-   SIDE MENU
-========================= */
-
-.menu-overlay {
-    position: fixed;
-    inset: 0;
-
-    background-color: rgba(0, 0, 0, 0.5);
-
-    opacity: 0;
-    visibility: hidden;
-    pointer-events: none;
-
-    transition: opacity 0.3s ease, visibility 0.3s ease;
-
-    z-index: 1000;
-}
-
-.menu-overlay.active {
-    opacity: 1;
-    visibility: visible;
-    pointer-events: auto;
-}
-
-.side-menu {
-    position: fixed;
-    top: 0;
-    right: max(0px, calc((100vw - 500px) / 2));
-
-    width: min(66.666vw, 333px);
-    height: 100vh;
-    height: 100dvh;
-
-    padding: 30px 24px;
-
-    background-color: #ffffff;
-
-    transform: translateX(100%);
-    visibility: hidden;
-    pointer-events: none;
-
-    transition: transform 0.3s ease, visibility 0.3s ease;
-
-    z-index: 1001;
-    overflow-y: auto;
-}
-
-.side-menu.active {
-    transform: translateX(0);
-    visibility: visible;
-    pointer-events: auto;
-}
-
-.side-menu-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    padding-bottom: 25px;
-    border-bottom: 1px solid #dddddd;
-
-    font-size: 20px;
-    font-weight: 600;
-}
-
-.menu-close {
     display: flex;
     align-items: center;
     justify-content: center;
 
-    border: none;
-}
-
-.menu-close i {
-    width: 24px;
-    height: 24px;
-}
-
-.side-menu-list {
-    list-style: none;
-    margin-top: 20px;
-}
-
-.side-menu-list li {
-    border-bottom: 1px solid #eeeeee;
-}
-
-.side-menu-list li a {
-    display: block;
-    padding: 22px 0;
-
-    font-size: 18px;
-    font-weight: 500;
+    background: none;
     color: #000000;
 }
 
+.menu-btn i {
+    width: 20px;
+    height: 20px;
+    stroke-width: 1.5;
+}
 
-/* =========================
-   CATEGORY MENU
-========================= */
 
-.category-menu {
+/* =====================================
+   MENU OVERLAY
+===================================== */
+
+.menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+
+    width: 100%;
+    max-width: 393px;
+    height: 100vh;
+    height: 100dvh;
+
+    padding: 0 20px;
+
+    background-color: #FFF3E5;
+
+    z-index: 1000;
+
+    display: none;
+}
+
+.menu-overlay.active {
+    display: block;
+}
+
+.menu-header {
+    width: 100%;
+    height: 60px;
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.close-btn {
+    width: 24px;
+    height: 24px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: none;
+    color: #000000;
+}
+
+.close-btn i {
+    width: 22px;
+    height: 22px;
+}
+
+.menu-list {
+    width: 100%;
+}
+
+.menu-list a {
+    width: 100%;
+    height: 65px;
+
+    display: flex;
+    align-items: center;
+
+    font-size: 16px;
+    font-weight: 500;
+
+    border-bottom: 1px solid #D0D0D0;
+}
+
+
+/* =====================================
+   CATEGORY NAV
+===================================== */
+
+.category-nav {
     width: 100%;
     height: 55px;
+
+    padding: 0 20px;
 
     display: flex;
     align-items: center;
     justify-content: space-between;
 
     border-bottom: 1px solid #D0D0D0;
+}
+
+.category-btn {
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: none;
+
+    font-size: 16px;
+    font-weight: 400;
+
+    color: #C8C8C8;
 
     white-space: nowrap;
 }
 
-.category-item {
-    font-size: 20px;
-    font-weight: 500;
-    color: #D0D0D0;
-}
-
-.category-item.active {
+.category-btn.active {
+    color: #E8452E;
     font-weight: 700;
-    color: #000000;
 }
 
 
-/* =========================
-   PRODUCT LIST
-========================= */
+/* =====================================
+   MENU SECTION
+===================================== */
 
-.product-section {
+.menu-section {
     width: 100%;
-    padding-top: 40px;
+
+    padding: 30px 20px 60px;
 }
 
-.product-list {
+
+/* =====================================
+   MENU GRID
+===================================== */
+
+.menu-grid {
     width: 100%;
 
     display: grid;
-    grid-template-columns: repeat(2, 169px);
 
-    column-gap: 16px;
-    row-gap: 24px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    column-gap: 15px;
+    row-gap: 35px;
 }
 
-.product-item {
-    width: 169px;
+
+/* =====================================
+   MENU CARD
+===================================== */
+
+.menu-card {
+    width: 100%;
+    min-width: 0;
 }
 
-.product-image {
-    width: 169px;
-    height: 200px;
 
-    background-color: #808080;
-    border-radius: 15px;
+/* =====================================
+   MENU IMAGE
+===================================== */
+
+.menu-image {
+    width: 100%;
+    height: 165px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.product-item h3 {
-    margin-top: 9px;
+.menu-image img {
+    width: 100%;
+    height: 100%;
 
+    object-fit: contain;
+}
+
+
+
+
+/* =====================================
+   MENU INFO
+===================================== */
+
+.menu-info {
+    width: 100%;
+
+    margin-top: 8px;
+}
+
+.menu-info h3 {
     font-size: 14px;
     font-weight: 500;
+
     color: #000000;
-    line-height: 1.4;
+
+    line-height: 1.5;
 }
 
-.product-item p {
+.menu-info p {
     margin-top: 2px;
 
     font-size: 12px;
     font-weight: 400;
-    color: #000000;
+
+    color: #555555;
     line-height: 1.4;
+}
+
+
+/* =====================================
+   RESPONSIVE
+===================================== */
+
+@media (min-width: 394px) {
+
+    .main-container {
+        margin: 0 auto;
+    }
+
 }

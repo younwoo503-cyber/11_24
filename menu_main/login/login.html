@@ -1,0 +1,297 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>입덕볶이 로그인</title>
+
+    <!-- Noto Sans KR -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <link rel="stylesheet" href="css/login.css">
+</head>
+
+<body>
+
+    <div class="main-container">
+
+        <!-- =========================
+             LOGIN HEADER
+        ========================== -->
+
+        <header class="login-header">
+
+            <button type="button" class="back-btn" id="backBtn" aria-label="뒤로가기">
+                <i data-lucide="chevron-left"></i>
+            </button>
+
+            <h1>로그인</h1>
+
+            <div class="header-space"></div>
+
+        </header>
+
+
+        <main class="login-content">
+
+            <!-- =========================
+                 CHARACTER
+            ========================== -->
+
+            <section class="login-character">
+                <img src="img/original_character.png" alt="입덕볶이 캐릭터">
+                
+
+            </section>
+
+
+            <!-- =========================
+                 LOGIN TITLE
+            ========================== -->
+
+            <section class="login-title">
+
+                <h2>입덕볶이와 더 가까워져요!</h2>
+
+            </section>
+
+
+            <!-- =========================
+                 LOGIN FORM
+            ========================== -->
+
+            <form class="login-form" id="loginForm">
+
+                <!-- 아이디 / 이메일 -->
+
+                <div class="input-box">
+
+                    <i data-lucide="mail"></i>
+
+                    <input
+                        type="text"
+                        id="userId"
+                        placeholder="아이디 또는 이메일"
+                        autocomplete="username"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- 비밀번호 -->
+
+                <div class="input-box">
+
+                    <i data-lucide="lock-keyhole"></i>
+
+                    <input
+                        type="password"
+                        id="userPassword"
+                        placeholder="비밀번호"
+                        autocomplete="current-password"
+                        required
+                    >
+
+                    <button
+                        type="button"
+                        class="password-toggle"
+                        id="passwordToggle"
+                        aria-label="비밀번호 표시"
+                    >
+                        <i data-lucide="eye-off"></i>
+                    </button>
+
+                </div>
+
+
+                <!-- 로그인 버튼 -->
+
+                <button type="submit" class="login-submit">
+                    로그인
+                </button>
+
+
+                <!-- 로그인 유지 / 계정 찾기 -->
+
+                <div class="login-options">
+
+                    <label class="remember-option">
+
+                        <input type="checkbox" id="rememberLogin">
+
+                        <span class="custom-checkbox"></span>
+
+                        <span>로그인 상태 유지</span>
+
+                    </label>
+
+                    <a href="find-account.html" class="find-account">
+                        아이디/비밀번호 찾기
+                    </a>
+
+                </div>
+
+            </form>
+
+
+            <!-- =========================
+                 SOCIAL LOGIN
+            ========================== -->
+
+            <section class="social-login">
+
+                <div class="social-divider">
+
+                    <span></span>
+                    <p>간편하게 로그인</p>
+                    <span></span>
+
+                </div>
+
+
+                <div class="social-buttons">
+
+                    <button type="button" class="naver-login" aria-label="네이버 로그인">
+                        <img src="img/naver.jpg" alt="네이버 이미지">
+                    </button>
+
+                    <button type="button" class="naver-login" aria-label="네이버 로그인">
+                        <img src="img/naver.jpg" alt="네이버 이미지">
+                    </button>
+
+                    <button type="button" class="naver-login" aria-label="네이버 로그인">
+                        <img src="img/naver.jpg" alt="네이버 이미지">
+                    </button>
+
+                    <button type="button" class="naver-login" aria-label="네이버 로그인">
+                        <img src="img/naver.jpg" alt="네이버 이미지">
+                    </button>
+
+                </div>
+
+            </section>
+
+
+            <!-- =========================
+                 SIGN UP
+            ========================== -->
+
+            <section class="signup-section">
+
+                <p>아직 회원이 아니신가요?</p>
+
+                <a href="signup.html">회원가입</a>
+
+            </section>
+
+        </main>
+
+    </div>
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================== -->
+
+    <script>
+
+        lucide.createIcons();
+
+
+        /* =========================
+           BACK BUTTON
+        ========================== */
+
+        const backBtn = document.getElementById('backBtn');
+
+        backBtn.addEventListener('click', () => {
+
+            if (window.history.length > 1) {
+                window.history.back();
+            } else {
+                window.location.href = 'index.html';
+            }
+
+        });
+
+
+        /* =========================
+           PASSWORD TOGGLE
+        ========================== */
+
+        const passwordInput = document.getElementById('userPassword');
+        const passwordToggle = document.getElementById('passwordToggle');
+
+        passwordToggle.addEventListener('click', () => {
+
+            const isPassword =
+                passwordInput.type === 'password';
+
+            passwordInput.type =
+                isPassword ? 'text' : 'password';
+
+            passwordToggle.innerHTML = isPassword
+                ? '<i data-lucide="eye"></i>'
+                : '<i data-lucide="eye-off"></i>';
+
+            lucide.createIcons();
+
+            passwordToggle.setAttribute(
+                'aria-label',
+                isPassword ? '비밀번호 숨기기' : '비밀번호 표시'
+            );
+
+        });
+
+
+        /* =========================
+           LOGIN FORM
+        ========================== */
+
+        const loginForm = document.getElementById('loginForm');
+
+        loginForm.addEventListener('submit', (event) => {
+
+            event.preventDefault();
+
+            const userId = document.getElementById('userId').value.trim();
+            const userPassword = passwordInput.value;
+
+            if (!userId || !userPassword) {
+                alert('아이디와 비밀번호를 입력해 주세요.');
+                return;
+            }
+
+            alert('로그인 기능은 추후 서버와 연결할 예정입니다.');
+
+        });
+
+
+        /* =========================
+           SOCIAL LOGIN
+        ========================== */
+
+        const socialButtons = document.querySelectorAll('.naver-login');
+
+        socialButtons.forEach(button => {
+
+            button.addEventListener('click', () => {
+
+                alert('간편 로그인 기능은 추후 연결할 예정입니다.');
+
+            });
+
+        });
+
+    </script>
+
+</body>
+</html>

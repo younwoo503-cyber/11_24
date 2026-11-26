@@ -1,12 +1,377 @@
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>입덕볶이 메뉴 상세</title>
+
+    <!-- Noto Sans KR -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
     <link rel="stylesheet" href="css/detail.css">
-    <title>Document</title>
 </head>
+
 <body>
-    
+
+    <div class="main-container">
+
+        <!-- =========================
+             HEADER
+        ========================== -->
+
+        <header class="header">
+
+            <a href="../../index.html" class="logo">
+                <img src="img/logo.png" alt="입덕볶이 로고">
+            </a>
+
+            <button class="menu-btn" id="menuOpen" aria-label="메뉴 열기">
+                <i data-lucide="menu"></i>
+            </button>
+
+        </header>
+
+
+        <!-- 전체 메뉴 -->
+        <div class="menu-overlay" id="menuOverlay">
+
+            <div class="menu-header">
+                <button class="close-btn" id="menuClose" aria-label="메뉴 닫기">
+                    <i data-lucide="x"></i>
+                </button>
+            </div>
+
+            <nav class="menu-list">
+                <a href="../../sub/lists/list.html">떡볶이 메뉴</a>
+                <a href="../../menu_main/introduce/introduce.html">소개</a>
+                <a href="../../menu_main/community/community.html">커뮤니티</a>
+                <a href="../../menu_main/login/login.html">로그인</a>
+            </nav>
+
+        </div>
+
+
+        <main class="detail-content">
+
+            <!-- =========================
+                 대표 메뉴 이미지
+            ========================== -->
+
+            <section class="product-section">
+
+                <div class="product-image">
+                    <img src="img/original.png" alt="입덕볶이 오리지널">
+                    
+                </div>
+
+                <!-- 메뉴 정보 -->
+                <div class="product-info">
+
+                    <div class="product-title-row">
+                        <h1 id="productName">오리지널 입덕볶이</h1>
+                        <p id="productPrice">14,000원</p>
+                    </div>
+
+                    <p class="product-description">
+                        기본맛 / 매콤한맛 / 안매운맛 [선택 가능]
+                    </p>
+
+                </div>
+
+            </section>
+
+
+            <!-- =========================
+                 수량 선택
+            ========================== -->
+
+            <section class="option-section">
+
+                <div class="option-row">
+
+                    <h2>수량</h2>
+
+                    <div class="quantity-control">
+
+                        <button
+                            type="button"
+                            id="minusBtn"
+                            aria-label="수량 감소"
+                            disabled
+                        >
+                            −
+                        </button>
+
+                        <span id="quantity">1</span>
+
+                        <button
+                            type="button"
+                            id="plusBtn"
+                            aria-label="수량 증가"
+                        >
+                            +
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- 맛 선택 -->
+
+                <div class="option-row taste-row">
+
+                    <h2>맛</h2>
+
+                    <select id="tasteSelect" class="taste-select">
+                        <option value="기본맛">기본맛</option>
+                        <option value="매콤한맛">매콤한맛</option>
+                        <option value="안매운맛">안매운맛</option>
+                    </select>
+
+                </div>
+
+            </section>
+
+
+            <!-- =========================
+                 추천 사이드 메뉴
+            ========================== -->
+
+            <section class="side-section">
+
+                <h2 class="side-title">추천 사이드 메뉴</h2>
+
+                <div class="side-grid">
+
+                    <article class="side-card">
+
+                        <div class="side-image">
+                            <img src="img/fry.png" alt="모듬 튀김">
+                        </div>
+
+                        <p>모듬 튀김</p>
+
+                    </article>
+
+
+                    <article class="side-card">
+
+                        <div class="side-image">
+                            <img src="img/fry.png" alt="참치마요 주먹밥">
+                        </div>
+
+                        <p>참치마요 주먹밥</p>
+
+                    </article>
+
+
+                    <article class="side-card">
+
+                        <div class="side-image">
+                            <img src="img/fry.png" alt="핫도그">
+                        </div>
+
+                        <p>핫도그</p>
+
+                    </article>
+
+
+                    <article class="side-card">
+
+                        <div class="side-image">
+                            <img src="img/fry.png" alt="계란찜">
+                        </div>
+
+                        <p>계란찜</p>
+
+                    </article>
+
+                </div>
+
+            </section>
+
+        </main>
+
+
+        <!-- =========================
+             하단 주문 버튼
+        ========================== -->
+        
+        <div class="bottom-order">
+            <a href="../payment/payment.html">
+                <button type="button" id="addCartBtn">
+                    <span id="totalPrice">14,000원</span> 담기
+                </button>
+            </a>
+        </div>
+
+    </div>
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================== -->
+
+    <script>
+
+        // Lucide 아이콘
+        lucide.createIcons();
+
+
+        /* =========================
+           HEADER MENU
+        ========================== */
+
+        const menuOpen = document.getElementById('menuOpen');
+        const menuClose = document.getElementById('menuClose');
+        const menuOverlay = document.getElementById('menuOverlay');
+
+        menuOpen.addEventListener('click', () => {
+            menuOverlay.classList.add('active');
+            document.body.classList.add('menu-open');
+        });
+
+        menuClose.addEventListener('click', () => {
+            menuOverlay.classList.remove('active');
+            document.body.classList.remove('menu-open');
+        });
+
+
+        /* =========================
+           PRODUCT INFORMATION
+        ========================== */
+
+        const products = {
+            original: {
+                name: '오리지널 입덕볶이',
+                price: 14000,
+                image: './images/menu-original.png'
+            },
+
+            cheese: {
+                name: '치즈 입덕볶이',
+                price: 16000,
+                image: './images/menu-cheese.png'
+            },
+
+            mala: {
+                name: '마라 입덕볶이',
+                price: 15000,
+                image: './images/menu-mala.png'
+            },
+
+            rose: {
+                name: '로제 입덕볶이',
+                price: 15000,
+                image: './images/menu-rose.png'
+            },
+
+            jjajang: {
+                name: '짜장 입덕볶이',
+                price: 15000,
+                image: './images/menu-jjajang.png'
+            }
+        };
+
+        const params = new URLSearchParams(window.location.search);
+        const productId = params.get('menu');
+
+        const currentProduct = products[productId] || products.original;
+
+        document.getElementById('productName').textContent =
+            currentProduct.name;
+
+        document.getElementById('productPrice').textContent =
+            currentProduct.price.toLocaleString('ko-KR') + '원';
+
+
+
+        /* =========================
+           QUANTITY
+        ========================== */
+
+        const minusBtn = document.getElementById('minusBtn');
+        const plusBtn = document.getElementById('plusBtn');
+
+        const quantityText = document.getElementById('quantity');
+        const totalPriceText = document.getElementById('totalPrice');
+
+        const addCartBtn = document.getElementById('addCartBtn');
+
+        let quantity = 1;
+
+        const unitPrice = currentProduct.price;
+
+
+        // 가격 및 수량 업데이트
+        function updateQuantity() {
+
+            const totalPrice = unitPrice * quantity;
+
+            quantityText.textContent = quantity;
+
+            totalPriceText.textContent =
+                totalPrice.toLocaleString('ko-KR') + '원';
+
+            // 최소 수량 1개
+            minusBtn.disabled = quantity <= 1;
+
+        }
+
+
+        // 수량 증가
+        plusBtn.addEventListener('click', () => {
+
+            quantity++;
+
+            updateQuantity();
+
+        });
+
+
+        // 수량 감소
+        minusBtn.addEventListener('click', () => {
+
+            if (quantity > 1) {
+
+                quantity--;
+
+                updateQuantity();
+
+            }
+
+        });
+
+
+        /* =========================
+           ADD TO CART BUTTON
+        ========================== */
+
+        addCartBtn.addEventListener('click', () => {
+
+            const totalPrice = unitPrice * quantity;
+
+            alert(
+                currentProduct.name + '\n' +
+                '수량: ' + quantity + '개\n' +
+                '맛: ' + document.getElementById('tasteSelect').value + '\n' +
+                '총 가격: ' + totalPrice.toLocaleString('ko-KR') + '원'
+            );
+
+        });
+
+
+        // 초기 가격 설정
+        updateQuantity();
+
+    </script>
+
 </body>
 </html>

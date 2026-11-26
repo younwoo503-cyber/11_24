@@ -1,31 +1,35 @@
+
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>입덕볶이</title>
 
-    <title>메인 페이지</title>
-
-    <!-- Google Fonts -->
+    <!-- Noto Sans KR -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="css/style.css">
-
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
 
-    <div class="container">
+    <div class="main-container">
 
-        <!-- HEADER -->
+        <!-- =========================
+             HEADER
+        ========================== -->
+
         <header class="header">
             <a href="index.html" class="logo">
-                <img src="images/logo.png" alt="로고">
+                <img src="img/logo.png" alt="입덕볶이 로고">
             </a>
 
             <button class="menu-btn" id="menuOpen" aria-label="메뉴 열기">
@@ -34,243 +38,964 @@
         </header>
 
 
-        <!-- SIDE MENU BACKGROUND -->
-        <div class="menu-overlay" id="menuOverlay"></div>
+        <!-- =========================
+             전체 메뉴
+        ========================== -->
 
-        <!-- SIDE MENU -->
-        <nav class="side-menu" id="sideMenu">
+        <div class="menu-overlay" id="menuOverlay">
 
-            <div class="side-menu-header">
-                <span>MENU</span>
-
-                <button class="menu-close" id="menuClose" aria-label="메뉴 닫기">
+            <div class="menu-header">
+                <button class="close-btn" id="menuClose" aria-label="메뉴 닫기">
                     <i data-lucide="x"></i>
                 </button>
             </div>
 
-            <ul class="menu-list">
-                <li>
-                    <a href="sub/lists/list.html">리스트페이지</a>
-                </li>
+            <nav class="menu-list">
+                <a href="sub/lists/list.html">떡볶이 메뉴</a>
+                <a href="menu_main/introduce/introduce.html">소개</a>
+                <a href="menu_main/community/community.html">커뮤니티</a>
+                <a href="menu_main/login/login.html">로그인</a>
+            </nav>
 
-                <li>
-                    <a href="sub/detail/detail.html">상세페이지</a>
-                </li>
-
-                <li>
-                    <a href="sub/payment/payment.html">결제페이지</a>
-                </li>
-
-                <li>
-                    <a href="sub/payment_finish/payment_finish.html">결제</a>
-                </li>
-            </ul>
-
-        </nav>
+        </div>
 
 
-        <!-- HERO -->
-        <section class="hero">
-            <img src="images/hero.jpg" alt="메인 배너">
-        </section>
+        <main>
+
+            <!-- =========================
+                 HERO SECTION
+            ========================== -->
+
+            <section class="hero">
+                <!-- 배경 이미지는 CSS에서 설정 -->
+            </section>
 
 
-        <!-- SECTION 1 : ORDER -->
-        <section class="section-1">
+            <!-- =========================
+                 SECTION 1
+                 주문 버튼
+            ========================== -->
 
-            <a href="sub/lists/list.html" class="order-btn delivery-btn">
-                배달 주문하기
-            </a>
+            <section class="section1">
 
-            <div class="order-btn-group">
-                <a href="#" class="order-btn">
-                    전화 주문
+                <a href="sub/lists/list.html" class="order-btn delivery-btn">
+                    <span>배달 주문하기</span>
+                    <i data-lucide="shopping-cart"></i>
                 </a>
 
-                <a href="#" class="order-btn">
-                    쿠폰 사용
-                </a>
-            </div>
+                <div class="sub-order-buttons">
 
-        </section>
-
-
-        <!-- SECTION 2 : RECOMMEND MENU -->
-        <section class="section-2">
-
-            <div class="section-inner">
-
-                <h2 class="section-title">추천 메뉴</h2>
-
-                <div class="hashtag-group">
-                    <button class="hashtag active"># 해시태그1</button>
-                    <button class="hashtag"># 해시태그2</button>
-                    <button class="hashtag"># 해시태그3</button>
-                </div>
-
-                <div class="recommend-list">
-
-                    <a href="#" class="recommend-card side-card">
-                        <div class="recommend-image"></div>
+                    <a href="tel:00000000000" class="order-btn phone-btn">
+                        <span>전화 주문</span>
+                        <i data-lucide="phone"></i>
                     </a>
 
-                    <a href="#" class="recommend-card main-card">
-
-                        <div class="recommend-info">
-                            <p class="recommend-best">BEST 1</p>
-                            <h3>떡볶이 타이틀 작성</h3>
-                            <span class="detail-btn">주문하기</span>
-                        </div>
-
-                        <div class="recommend-image"></div>
-
-                    </a>
-
-                    <a href="#" class="recommend-card side-card">
-                        <div class="recommend-image"></div>
+                    <a href="#" class="order-btn coupon-btn">
+                        <span>쿠폰 사용</span>
+                        <i data-lucide="ticket-percent"></i>
                     </a>
 
                 </div>
 
-            </div>
-
-        </section>
+            </section>
 
 
-        <!-- SECTION 3 : MENU -->
-                <!-- 메뉴 배경 -->
-                <div class="menu-overlay" id="menuOverlay"></div>
+           
+            
+            <!-- =========================
+                 SECTION 2 : 추천 메뉴
+            ========================== -->
 
-                <!-- 사이드 메뉴 -->
-                <nav class="side-menu" id="sideMenu">
+            <section class="recommend-section" id="recommendSection">
+            
+                <h2 class="recommend-title">추천 메뉴</h2>
+            
+                <!-- 추천 메뉴 탭 -->
+                <div class="recommend-tabs">
                 
-                    <div class="side-menu-header">
-                        <span>MENU</span>
+                    <button class="recommend-tab active" data-index="0">
+                        # 입덕볶이
+                    </button>
+                
+                    <button class="recommend-tab" data-index="1">
+                        # 로제 입덕
+                    </button>
+                
+                    <button class="recommend-tab" data-index="2">
+                        # 치즈 입덕
+                    </button>
+                
+                </div>
+            
+            
+                <!-- 슬라이드 영역 -->
+                <div class="recommend-slider" id="recommendSlider">
+                
+                    <div class="recommend-track" id="recommendTrack">
                     
-                        <button class="menu-close" id="menuClose" aria-label="메뉴 닫기">
-                            <i data-lucide="x"></i>
-                        </button>
+                        <!-- 오리지널 -->
+                        <article class="recommend-card" data-index="0">
+                        
+                            <div class="recommend-info">
+                            
+                                <span class="recommend-best">BEST 1</span>
+                            
+                                <h3>오리지널 입덕볶이</h3>
+                            
+                                <a href="../sub/lists/list.html" class="recommend-order">
+                                    주문하기
+                                </a>
+                            
+                            </div>
+                        
+                            <div class="recommend-image">
+                                <img src="img/original.png" alt="오리지널 입덕볶이">
+                              
+                            </div>
+                        
+                        </article>
+                    
+                    
+                        <!-- 로제 -->
+                        <article class="recommend-card" data-index="1">
+                        
+                            <div class="recommend-info">
+                            
+                                <span class="recommend-best">BEST 2</span>
+                            
+                                <h3>로제 입덕볶이</h3>
+                            
+                                <a href="../sub/lists/list.html" class="recommend-order">
+                                    주문하기
+                                </a>
+                            
+                            </div>
+                        
+                            <div class="recommend-image">
+                                <img src="img/original.png" alt="로제 입덕볶이">
+                            </div>
+                        
+                        </article>
+                    
+                    
+                        <!-- 치즈 -->
+                        <article class="recommend-card" data-index="2">
+                        
+                            <div class="recommend-info">
+                            
+                                <span class="recommend-best">BEST 3</span>
+                            
+                                <h3>치즈 입덕볶이</h3>
+                            
+                                <a href="../sub/lists/list.html" class="recommend-order">
+                                    주문하기
+                                </a>
+                            
+                            </div>
+                        
+                            <div class="recommend-image">
+                                <img src="img/original.png" alt="치즈 입덕볶이">
+                            </div>
+                        
+                        </article>
+                    
                     </div>
                 
-                    <ul class="side-menu-list">
-                        <li><a href="sub/lists/list.html">리스트페이지</a></li>
-                        <li><a href="sub/detail/detail.html">상세페이지</a></li>
-                        <li><a href="sub/payment/payment.html">결제페이지</a></li>
-                        <li><a href="sub/payment_finish/payment_finish.html">결제</a></li>
-                    </ul>
-                
-                </nav>
+                </div>
+            
+            </section>
 
-                <div class="menu-list">
+            <!-- =========================
+                 SECTION 3
+                 입덕볶이 메뉴
+            ========================== -->
 
-                    <a href="#" class="menu-item">
-                        <div class="menu-image"></div>
-                        <h3>떡볶이 타이틀 작성</h3>
-                    </a>
+            <section class="section3">
 
-                    <a href="#" class="menu-item">
-                        <div class="menu-image"></div>
-                        <h3>떡볶이 타이틀 작성</h3>
-                    </a>
+                <h2 class="section-title">입덕볶이 메뉴</h2>
 
-                    <a href="#" class="menu-item">
-                        <div class="menu-image"></div>
-                        <h3>떡볶이 타이틀 작성</h3>
-                    </a>
+                <!-- 메뉴 탭 -->
 
-                    <a href="#" class="menu-item">
-                        <div class="menu-image"></div>
-                        <h3>떡볶이 타이틀 작성</h3>
-                    </a>
+                <div class="menu-tabs">
+
+                    <button class="tab-btn active" data-index="0">탭메뉴 1</button>
+                    <button class="tab-btn" data-index="1">탭메뉴 2</button>
+                    <button class="tab-btn" data-index="2">탭메뉴 3</button>
 
                 </div>
 
-            </div>
-
-        </section>
 
 
-        <!-- SECTION 4 : EVENT -->
-        <section class="section-4">
+                <!-- 메뉴 슬라이드 -->
 
-            <div class="section-inner">
+                <div class="menu-slider" id="menuSlider">
+
+                    <div class="menu-track">
+
+                        <!-- 메뉴 페이지 1 -->
+
+                        <div class="menu-page">
+
+                            <article class="menu-item">
+                                <div class="menu-image-box">
+                                    <img src="img/original.png" alt="오리지널 입덕볶이">
+                                </div>
+                                <p>오리지널 입덕볶이</p>
+                            </article>
+
+                            <article class="menu-item">
+                                <div class="menu-image-box">
+                                    <img src="img/original.png" alt="치즈 입덕볶이">
+                                </div>
+                                <p>치즈 입덕볶이</p>
+                            </article>
+
+                            <article class="menu-item">
+                                <div class="menu-image-box">
+                                    <img src="img/original.png" alt="로제 입덕볶이">
+                                </div>
+                                <p>로제 입덕볶이</p>
+                            </article>
+
+                            <article class="menu-item">
+                                <div class="menu-image-box">
+                                    <img src="img/original.png" alt="짜장 입덕볶이">
+                                </div>
+                                <p>짜장 입덕볶이</p>
+                            </article>
+
+                        </div>
+
+
+                        <!-- 메뉴 페이지 2 -->
+
+                        <div class="menu-page">
+
+                            <article class="menu-item">
+                                <div class="menu-image-box">
+                                    <img src="img/original.png" alt="메뉴 이미지">
+                                </div>
+                                <p>메뉴 이름 5</p>
+                            </article>
+
+                            <article class="menu-item">
+                                <div class="menu-image-box">
+                                    <img src="img/original.png" alt="메뉴 이미지">
+                                </div>
+                                <p>메뉴 이름 6</p>
+                            </article>
+
+                            <article class="menu-item">
+                                <div class="menu-image-box">
+                                    <img src="img/original.png" alt="메뉴 이미지">
+                                </div>
+                                <p>메뉴 이름 7</p>
+                            </article>
+
+                            <article class="menu-item">
+                                <div class="menu-image-box">
+                                    <img src="img/original.png" alt="메뉴 이미지">
+                                </div>
+                                <p>메뉴 이름 8</p>
+                            </article>
+
+                        </div>
+
+
+                        <!-- 메뉴 페이지 3 -->
+
+                        <div class="menu-page">
+
+                            <article class="menu-item">
+                                <div class="menu-image-box">
+                                    <img src="img/original.png" alt="메뉴 이미지">
+                                </div>
+                                <p>메뉴 이름 9</p>
+                            </article>
+
+                            <article class="menu-item">
+                                <div class="menu-image-box">
+                                    <img src="img/original.png" alt="메뉴 이미지">
+                                </div>
+                                <p>메뉴 이름 10</p>
+                            </article>
+
+                            <article class="menu-item">
+                                <div class="menu-image-box">
+                                    <img src="img/original.png" alt="메뉴 이미지">
+                                </div>
+                                <p>메뉴 이름 11</p>
+                            </article>
+
+                            <article class="menu-item">
+                                <div class="menu-image-box">
+                                    <img src="img/original.png" alt="메뉴 이미지">
+                                </div>
+                                <p>메뉴 이름 12</p>
+                            </article>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =========================
+                 SECTION 4
+                 이벤트
+            ========================== -->
+
+            <section class="section4">
 
                 <h2 class="section-title">이벤트</h2>
 
                 <p class="event-description">
-                    해당 추가되는 임의적인 이벤트를 만나보세요!
+                    매달 추가되는 입덕볶이의 이벤트를 만나보세요!
                 </p>
 
-                <div class="event-tab">
-                    <button class="event-tab-item active">진행중</button>
-                    <button class="event-tab-item">종료</button>
-                    <button class="event-tab-item">당첨자</button>
+
+                <!-- 이벤트 탭 -->
+
+                <div class="event-tabs">
+
+                    <button class="event-tab active" data-event="ongoing">
+                        진행중
+                    </button>
+
+                    <button class="event-tab" data-event="ended">
+                        종료
+                    </button>
+
+                    <button class="event-tab" data-event="upcoming">
+                        예정
+                    </button>
+
                 </div>
 
-                <a href="#" class="event-card">
 
-                    <div class="event-image">
-                        <img src="images/event.jpg" alt="이벤트 이미지">
-                    </div>
+                <!-- 이벤트 콘텐츠 -->
 
-                    <div class="event-info">
+                <div class="event-list">
 
-                        <p class="event-subtitle">
-                            [할인중 이벤트]
-                        </p>
+                    <!-- 진행중 이벤트 -->
 
-                        <h3 class="event-title">
-                            배달 추가되는 임의적인 이벤트 내역입니다
-                            자세한 내용은 이동버튼
-                        </h3>
+                    <article class="event-card" data-category="ongoing">
 
-                        <p class="event-date">
-                            2026.11.23~2025.12.31
-                        </p>
+                        <img
+                            src="img/ttokbokki_best_menu.jpg"
+                            alt="입덕볶이 할인 이벤트"
+                            class="event-image"
+                        >
 
-                    </div>
+                        <div class="event-content">
 
-                </a>
+                            <p class="event-subtitle">
+                                [할인중 이벤트]
+                            </p>
 
-            </div>
+                            <h3 class="event-title">
+                                배달 추가되는 입덕볶이의 이벤트 내역입니다.
+                                자세한 내용은 이벤트를 확인하세요.
+                            </h3>
 
-        </section>
+                            <p class="event-date">
+                                2026.11.23~2026.12.31
+                            </p>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- 종료 이벤트 -->
+
+                    <article class="event-card" data-category="ended">
+
+                        <img
+                            src="./images/event-ended.jpg"
+                            alt="종료된 이벤트"
+                            class="event-image"
+                        >
+
+                        <div class="event-content">
+
+                            <p class="event-subtitle">
+                                [종료 이벤트]
+                            </p>
+
+                            <h3 class="event-title">
+                                입덕볶이 이벤트가 종료되었습니다.
+                                다음 이벤트도 기대해 주세요!
+                            </h3>
+
+                            <p class="event-date">
+                                2026.10.01~2026.10.31
+                            </p>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- 예정 이벤트 -->
+
+                    <article class="event-card" data-category="upcoming">
+
+                        <img
+                            src="./images/event-upcoming.jpg"
+                            alt="예정된 이벤트"
+                            class="event-image"
+                        >
+
+                        <div class="event-content">
+
+                            <p class="event-subtitle">
+                                [예정 이벤트]
+                            </p>
+
+                            <h3 class="event-title">
+                                새로운 입덕볶이 이벤트가 곧 시작됩니다.
+                                많은 기대 부탁드립니다!
+                            </h3>
+
+                            <p class="event-date">
+                                2027.01.01~2027.01.31
+                            </p>
+
+                        </div>
+
+                    </article>
+
+                </div>
+
+            </section>
+
+        </main>
 
     </div>
 
 
-    <!-- JAVASCRIPT -->
+    <!-- =========================
+         JAVASCRIPT
+    ========================== -->
+
     <script>
 
-        
+        // Lucide 아이콘
+        lucide.createIcons();
+
+
+        /* =========================
+           전체 메뉴 열기 / 닫기
+        ========================== */
+
         const menuOpen = document.getElementById('menuOpen');
         const menuClose = document.getElementById('menuClose');
-        const sideMenu = document.getElementById('sideMenu');
         const menuOverlay = document.getElementById('menuOverlay');
-            
-        // 메뉴 열기
-        menuOpen.addEventListener('click', function() {
-            sideMenu.classList.add('active');
+
+        menuOpen.addEventListener('click', () => {
             menuOverlay.classList.add('active');
             document.body.classList.add('menu-open');
         });
-        
-        // 메뉴 닫기
-        function closeMenu() {
-            sideMenu.classList.remove('active');
+
+        menuClose.addEventListener('click', () => {
             menuOverlay.classList.remove('active');
             document.body.classList.remove('menu-open');
-        }
-        
-        // X 버튼 클릭
-        menuClose.addEventListener('click', closeMenu);
-        
-        // 바깥 배경 클릭
-        menuOverlay.addEventListener('click', closeMenu);
-        
-        // 아이콘 실행
-        lucide.createIcons();
+        });
 
+
+       
+
+        
+
+       
+       
+
+/* =====================================
+   RECOMMEND SLIDER
+===================================== */
+
+(() => {
+
+    const slider = document.getElementById('recommendSlider');
+    const track = document.getElementById('recommendTrack');
+    const tabs = document.querySelectorAll('.recommend-tab');
+
+    if (!slider || !track || tabs.length === 0) return;
+
+    const originalCards = Array.from(track.children);
+
+    const totalSlides = originalCards.length;
+
+    if (totalSlides < 2) return;
+
+
+    /* =========================
+       INFINITE CLONE
+    ========================= */
+
+    const firstClone = originalCards[0].cloneNode(true);
+    const lastClone = originalCards[totalSlides - 1].cloneNode(true);
+
+    firstClone.classList.add('clone');
+    lastClone.classList.add('clone');
+
+    track.appendChild(firstClone);
+    track.insertBefore(lastClone, track.firstChild);
+
+
+    /* =========================
+       STATE
+    ========================= */
+
+    let currentPosition = 1;
+    let currentIndex = 0;
+
+    let startX = 0;
+    let currentX = 0;
+
+    let isDragging = false;
+    let isMoving = false;
+    let hasDragged = false;
+
+    let startTranslate = 0;
+
+    const DRAG_THRESHOLD = 50;
+
+
+    /* =========================
+       GET SLIDE WIDTH
+    ========================= */
+
+    function getCardWidth() {
+
+        return track.children[0].getBoundingClientRect().width;
+
+    }
+
+
+    /* =========================
+       CALCULATE POSITION
+    ========================= */
+
+    function getTranslate(position) {
+
+        const cardWidth = getCardWidth();
+
+        return (
+            slider.clientWidth / 2 -
+            cardWidth / 2 -
+            cardWidth * position
+        );
+
+    }
+
+
+    /* =========================
+       UPDATE SLIDE POSITION
+    ========================= */
+
+    function updatePosition(animate = true) {
+
+        if (!animate) {
+            track.classList.add('no-transition');
+        } else {
+            track.classList.remove('no-transition');
+        }
+
+        track.style.transform =
+            `translate3d(${getTranslate(currentPosition)}px, 0, 0)`;
+
+        updateActiveSlide();
+
+        if (!animate) {
+
+            track.offsetHeight;
+
+            track.classList.remove('no-transition');
+
+        }
+
+    }
+
+
+    /* =========================
+       UPDATE ACTIVE SLIDE
+    ========================= */
+
+    function updateActiveSlide() {
+
+        const cards = Array.from(track.children);
+
+        cards.forEach(card => {
+            card.classList.remove('active');
+        });
+
+        const activeCard = cards[currentPosition];
+
+        if (activeCard) {
+            activeCard.classList.add('active');
+        }
+
+
+        // 현재 메뉴에 맞게 탭 변경
+        tabs.forEach((tab, index) => {
+
+            tab.classList.toggle(
+                'active',
+                index === currentIndex
+            );
+
+        });
+
+    }
+
+
+    /* =========================
+       MOVE TO SLIDE
+    ========================= */
+
+    function moveTo(position) {
+
+        if (isMoving) return;
+
+        isMoving = true;
+
+        currentPosition = position;
+
+        currentIndex =
+            ((position - 1) % totalSlides + totalSlides) % totalSlides;
+
+        updatePosition(true);
+
+    }
+
+
+    /* =========================
+       NEXT / PREVIOUS
+    ========================= */
+
+    function nextSlide() {
+
+        moveTo(currentPosition + 1);
+
+    }
+
+    function previousSlide() {
+
+        moveTo(currentPosition - 1);
+
+    }
+
+
+    /* =========================
+       TAB CLICK
+    ========================= */
+
+    tabs.forEach((tab, index) => {
+
+        tab.addEventListener('click', () => {
+
+            if (isMoving || isDragging) return;
+
+            if (currentIndex === index) return;
+
+            moveTo(index + 1);
+
+        });
+
+    });
+
+
+    /* =========================
+       TRANSITION END
+    ========================= */
+
+    track.addEventListener('transitionend', (event) => {
+
+        if (event.target !== track) return;
+        if (event.propertyName !== 'transform') return;
+
+        // 마지막 복제 슬라이드에서 처음으로
+        if (currentPosition === totalSlides + 1) {
+
+            currentPosition = 1;
+
+            updatePosition(false);
+
+        }
+
+        // 첫 번째 복제 슬라이드에서 마지막으로
+        else if (currentPosition === 0) {
+
+            currentPosition = totalSlides;
+
+            updatePosition(false);
+
+        }
+
+        isMoving = false;
+
+    });
+
+
+    /* =========================
+       DRAG START
+    ========================= */
+
+    slider.addEventListener('pointerdown', (event) => {
+
+        if (event.pointerType === 'mouse' && event.button !== 0) return;
+
+        if (isMoving) return;
+
+        isDragging = true;
+        hasDragged = false;
+
+        startX = event.clientX;
+        currentX = startX;
+
+        startTranslate = getTranslate(currentPosition);
+
+        slider.classList.add('dragging');
+
+        track.classList.add('no-transition');
+
+        slider.setPointerCapture(event.pointerId);
+
+    });
+
+
+    /* =========================
+       DRAG MOVE
+    ========================= */
+
+    slider.addEventListener('pointermove', (event) => {
+
+        if (!isDragging) return;
+
+        currentX = event.clientX;
+
+        const moveDistance = currentX - startX;
+
+        if (Math.abs(moveDistance) > 5) {
+            hasDragged = true;
+        }
+
+        track.style.transform =
+            `translate3d(${startTranslate + moveDistance}px, 0, 0)`;
+
+    });
+
+
+    /* =========================
+       DRAG END
+    ========================= */
+
+    function endDrag() {
+
+        if (!isDragging) return;
+
+        const moveDistance = currentX - startX;
+
+        isDragging = false;
+
+        slider.classList.remove('dragging');
+
+        track.classList.remove('no-transition');
+
+
+        // 왼쪽 드래그 → 다음 슬라이드
+        if (moveDistance < -DRAG_THRESHOLD) {
+
+            nextSlide();
+
+        }
+
+        // 오른쪽 드래그 → 이전 슬라이드
+        else if (moveDistance > DRAG_THRESHOLD) {
+
+            previousSlide();
+
+        }
+
+        // 이동 거리가 짧으면 원래 위치로
+        else {
+
+            updatePosition(true);
+
+        }
+
+    }
+
+
+    slider.addEventListener('pointerup', endDrag);
+
+    slider.addEventListener('pointercancel', endDrag);
+
+
+    /* =========================
+       PREVENT ACCIDENTAL LINK CLICK
+    ========================= */
+
+    slider.addEventListener('click', (event) => {
+
+        if (hasDragged) {
+
+            event.preventDefault();
+            event.stopPropagation();
+
+            hasDragged = false;
+
+        }
+
+    }, true);
+
+
+    /* =========================
+       RESIZE
+    ========================= */
+
+    window.addEventListener('resize', () => {
+
+        if (!isDragging) {
+            updatePosition(false);
+        }
+
+    });
+
+
+    /* =========================
+       INITIALIZE
+    ========================= */
+
+    updatePosition(false);
+
+})();
+
+
+
+
+
+
+
+        /* =========================
+           SECTION 3
+           입덕볶이 메뉴 슬라이드
+        ========================== */
+
+        const menuSlider = document.getElementById('menuSlider');
+        const menuPages = document.querySelectorAll('.menu-page');
+        const menuTabs = document.querySelectorAll('.menu-tabs .tab-btn');
+
+        let menuIndex = 0;
+
+        function updateMenu(index) {
+
+            menuIndex = Math.max(
+                0,
+                Math.min(index, menuPages.length - 1)
+            );
+
+            menuTabs.forEach((tab, i) => {
+                tab.classList.toggle('active', i === menuIndex);
+            });
+
+            menuSlider.scrollTo({
+                left: menuSlider.clientWidth * menuIndex,
+                behavior: 'smooth'
+            });
+
+        }
+
+
+        // 메뉴 탭 클릭
+        menuTabs.forEach((tab) => {
+
+            tab.addEventListener('click', () => {
+                updateMenu(Number(tab.dataset.index));
+            });
+
+        });
+
+
+        // 메뉴 좌우 스와이프
+        let menuScrollTimer;
+
+        menuSlider.addEventListener('scroll', () => {
+
+            clearTimeout(menuScrollTimer);
+
+            menuScrollTimer = setTimeout(() => {
+
+                const index = Math.round(
+                    menuSlider.scrollLeft / menuSlider.clientWidth
+                );
+
+                menuIndex = Math.max(
+                    0,
+                    Math.min(index, menuPages.length - 1)
+                );
+
+                menuTabs.forEach((tab, i) => {
+                    tab.classList.toggle('active', i === menuIndex);
+                });
+
+            }, 100);
+
+        });
+
+
+
+  
+
+
+
+        /* =========================
+           SECTION 4
+           이벤트 탭
+        ========================== */
+
+        const eventTabs = document.querySelectorAll('.event-tab');
+        const eventCards = document.querySelectorAll('.event-card');
+
+        eventTabs.forEach((tab) => {
+
+            tab.addEventListener('click', () => {
+
+                const category = tab.dataset.event;
+
+                // 활성화 탭 변경
+                eventTabs.forEach((item) => {
+                    item.classList.toggle('active', item === tab);
+                });
+
+                // 선택된 이벤트만 표시
+                eventCards.forEach((card) => {
+
+                    card.style.display =
+                        card.dataset.category === category
+                            ? 'block'
+                            : 'none';
+
+                });
+
+            });
+
+        });
+
+        // 처음에는 진행중 이벤트만 표시
+        eventCards.forEach((card) => {
+
+            card.style.display =
+                card.dataset.category === 'ongoing'
+                    ? 'block'
+                    : 'none';
+
+        });
 
     </script>
 

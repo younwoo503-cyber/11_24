@@ -1,0 +1,440 @@
+
+/* =====================================
+   GLOBAL
+===================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100%;
+    min-height: 100vh;
+
+    background-color: #FFF3E5;
+
+    font-family: 'Noto Sans KR', sans-serif;
+    color: #000000;
+}
+
+button,
+input,
+a {
+    font-family: inherit;
+}
+
+button {
+    border: none;
+    cursor: pointer;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+.main-container {
+    width: 100%;
+    max-width: 393px;
+    min-height: 100vh;
+
+    margin: 0 auto;
+
+    padding: 0 20px;
+
+    background-color: #FFF3E5;
+}
+
+
+/* =====================================
+   LOGIN HEADER
+===================================== */
+
+.login-header {
+    width: 100%;
+    height: 40px;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+
+    align-items: center;
+}
+
+.back-btn {
+    width: 24px;
+    height: 24px;
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    background: none;
+    color: #000000;
+}
+
+.back-btn i {
+    width: 19px;
+    height: 19px;
+
+    stroke-width: 1.5;
+}
+
+.login-header h1 {
+    text-align: center;
+
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.header-space {
+    width: 24px;
+}
+
+
+/* =====================================
+   LOGIN CONTENT
+===================================== */
+
+.login-content {
+    width: 100%;
+}
+
+
+/* =====================================
+   CHARACTER
+===================================== */
+
+.login-character {
+    width: 100%;
+    height: 96px;
+
+    margin-top: 13px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.login-character img {
+    width: 100px;
+    height: 100%;
+
+    object-fit: contain;
+}
+
+
+/* =====================================
+   LOGIN TITLE
+===================================== */
+
+.login-title {
+    width: 100%;
+
+    margin-top: 8px;
+    margin-bottom: 10px;
+
+    text-align: center;
+}
+
+.login-title h2 {
+    font-size: 13px;
+    font-weight: 700;
+}
+
+
+/* =====================================
+   LOGIN FORM
+===================================== */
+
+.login-form {
+    width: 100%;
+}
+
+
+/* =====================================
+   INPUT BOX
+===================================== */
+
+.input-box {
+    width: 100%;
+    height: 37px;
+
+    padding: 0 10px;
+
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    border: 1px solid #8D8174;
+    border-radius: 20px;
+
+    background-color: transparent;
+}
+
+.input-box + .input-box {
+    margin-top: 9px;
+}
+
+.input-box > i {
+    width: 15px;
+    height: 15px;
+
+    flex-shrink: 0;
+
+    stroke-width: 1.7;
+}
+
+.input-box input {
+    width: 100%;
+    min-width: 0;
+    height: 100%;
+
+    border: none;
+    outline: none;
+
+    background: transparent;
+
+    font-size: 11px;
+    font-weight: 400;
+}
+
+.input-box input::placeholder {
+    color: #777777;
+}
+
+
+/* 비밀번호 보기 버튼 */
+
+.password-toggle {
+    width: 20px;
+    height: 24px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: none;
+    color: #555555;
+}
+
+.password-toggle i {
+    width: 15px;
+    height: 15px;
+
+    stroke-width: 1.5;
+}
+
+
+/* =====================================
+   LOGIN BUTTON
+===================================== */
+
+.login-submit {
+    width: 100%;
+    height: 35px;
+
+    margin-top: 11px;
+
+    border-radius: 20px;
+
+    background-color: #E8452E;
+
+    color: #FFFFFF;
+
+    font-size: 12px;
+    font-weight: 500;
+}
+
+
+/* =====================================
+   LOGIN OPTIONS
+===================================== */
+
+.login-options {
+    width: 100%;
+
+    margin-top: 10px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.remember-option {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+
+    font-size: 9px;
+    font-weight: 400;
+
+    cursor: pointer;
+}
+
+.remember-option input {
+    display: none;
+}
+
+
+/* 체크박스 */
+
+.custom-checkbox {
+    width: 15px;
+    height: 15px;
+
+    border: 1px solid #777777;
+    border-radius: 3px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: transparent;
+}
+
+.remember-option input:checked + .custom-checkbox {
+    background-color: #E8452E;
+    border-color: #E8452E;
+}
+
+.remember-option input:checked + .custom-checkbox::after {
+    content: "✓";
+
+    color: #FFFFFF;
+    font-size: 11px;
+    font-weight: 600;
+}
+
+.find-account {
+    font-size: 9px;
+    font-weight: 400;
+}
+
+
+/* =====================================
+   SOCIAL LOGIN
+===================================== */
+
+.social-login {
+    width: 100%;
+
+    margin-top: 28px;
+}
+
+
+/* 간편 로그인 구분선 */
+
+.social-divider {
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    gap: 7px;
+}
+
+.social-divider span {
+    flex: 1;
+    height: 1px;
+
+    background-color: #B8A99A;
+}
+
+.social-divider p {
+    font-size: 9px;
+    font-weight: 400;
+
+    color: #777777;
+
+    white-space: nowrap;
+}
+
+
+/* 소셜 로그인 버튼 */
+
+.social-buttons {
+    width: 100%;
+
+    margin-top: 13px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 11px;
+}
+
+.naver-login {
+    width: 28px;
+    height: 28px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 7px;
+
+    background-color: #03C75A;
+
+    color: #FFFFFF;
+
+    font-size: 19px;
+    font-weight: 700;
+}
+
+
+/* =====================================
+   SIGN UP
+===================================== */
+
+.signup-section {
+    width: 100%;
+    height: 35px;
+
+    margin-top: 20px;
+
+    padding: 0 12px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    border: 1px solid #E8452E;
+    border-radius: 20px;
+
+    background-color: #FFFFFF;
+}
+
+.signup-section p {
+    font-size: 10px;
+    font-weight: 400;
+
+    color: #777777;
+}
+
+.signup-section a {
+    font-size: 10px;
+    font-weight: 500;
+
+    color: #E8452E;
+}
+
+
+/* =====================================
+   RESPONSIVE
+===================================== */
+
+@media (min-width: 394px) {
+
+    .main-container {
+        margin: 0 auto;
+    }
+
+}

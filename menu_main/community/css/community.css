@@ -1,0 +1,454 @@
+
+/* =====================================
+   GLOBAL
+===================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100%;
+    min-height: 100vh;
+
+    background-color: #FFF3E5;
+
+    font-family: 'Noto Sans KR', sans-serif;
+    color: #000000;
+}
+
+body.menu-open {
+    overflow: hidden;
+}
+
+button,
+a {
+    font-family: inherit;
+}
+
+button {
+    border: none;
+    cursor: pointer;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+.main-container {
+    width: 100%;
+    max-width: 393px;
+    min-height: 100vh;
+
+    margin: 0 auto;
+
+    background-color: #FFF3E5;
+}
+
+
+/* =====================================
+   HEADER
+===================================== */
+
+.header {
+    width: 100%;
+    height: 60px;
+
+    padding: 0 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    width: 70px;
+    height: auto;
+}
+
+.menu-btn {
+    width: 24px;
+    height: 24px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: none;
+}
+
+.menu-btn i {
+    width: 20px;
+    height: 20px;
+    stroke-width: 1.5;
+}
+
+
+/* =====================================
+   MENU OVERLAY
+===================================== */
+
+.menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+
+    width: 100%;
+    max-width: 393px;
+    height: 100vh;
+    height: 100dvh;
+
+    padding: 0 20px;
+
+    background-color: #FFF3E5;
+
+    z-index: 1000;
+
+    display: none;
+}
+
+.menu-overlay.active {
+    display: block;
+}
+
+.menu-header {
+    width: 100%;
+    height: 60px;
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.close-btn {
+    width: 24px;
+    height: 24px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: none;
+}
+
+.close-btn i {
+    width: 22px;
+    height: 22px;
+}
+
+.menu-list a {
+    width: 100%;
+    height: 65px;
+
+    display: flex;
+    align-items: center;
+
+    font-size: 16px;
+    font-weight: 500;
+
+    border-bottom: 1px solid #D0D0D0;
+}
+
+
+/* =====================================
+   COMMUNITY CONTENT
+===================================== */
+
+.community-content {
+    width: 100%;
+    padding: 0 20px;
+}
+
+
+/* =====================================
+   COMMUNITY INTRO
+===================================== */
+
+.community-intro {
+    width: 100%;
+    height: 112px;
+    
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.intro-text {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.intro-text h1 {
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.intro-text p {
+    font-size: 16px;
+    font-weight: 500;
+
+    line-height: 1.4;
+}
+
+.intro-character {
+    width: 100px;
+    height: 100px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.intro-character img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+}
+
+
+/* =====================================
+   COMMUNITY TABS
+===================================== */
+
+.community-tabs {
+    width: 100%;
+    height: 34px;
+    margin-top: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    border-bottom: 1px solid #D0D0D0;
+}
+
+.community-tab {
+    height: 100%;
+
+    padding: 0 2px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: none;
+
+    color: #C5C5C5;
+
+    font-size: 12px;
+    font-weight: 400;
+
+    white-space: nowrap;
+}
+
+.community-tab.active {
+    color: #000000;
+    font-weight: 700;
+}
+
+
+/* =====================================
+   POST SECTION
+===================================== */
+
+.post-section {
+    width: 100%;
+    margin-top: 19px;
+}
+
+.post-list {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    gap: 13px;
+}
+
+
+/* =====================================
+   POST CARD
+===================================== */
+
+.post-card {
+    width: 100%;
+    height: 85px;
+
+    padding: 8px;
+
+    display: flex;
+    align-items: center;
+
+    border: 1px solid #B8A99A;
+    border-radius: 10px;
+
+    background-color: transparent;
+}
+
+
+/* =====================================
+   POST IMAGE
+===================================== */
+
+.post-image {
+    width: 65px;
+    height: 65px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.post-image img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+    border-radius: 50%;
+}
+
+
+/* =====================================
+   POST CONTENT
+===================================== */
+
+.post-content {
+    min-width: 0;
+
+    height: 100%;
+
+    margin-left: 8px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.post-tag {
+    min-width: 48px;
+    height: 18px;
+
+    padding: 0 7px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid #E8452E;
+    border-radius: 20px;
+
+    font-size: 9px;
+    font-weight: 500;
+
+    white-space: nowrap;
+}
+
+.post-description {
+    margin-top: 3px;
+
+    font-size: 9px;
+    font-weight: 400;
+
+    line-height: 1.35;
+}
+
+
+/* =====================================
+   POST ACTIONS
+===================================== */
+
+.post-actions {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+
+    margin-top: auto;
+}
+
+.post-actions button {
+    width: 16px;
+    height: 16px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: none;
+
+    color: #000000;
+}
+
+.post-actions i {
+    width: 15px;
+    height: 15px;
+
+    stroke-width: 1.8;
+}
+
+.like-btn.liked {
+    color: #E8452E;
+}
+
+
+/* =====================================
+   FLOATING CHAT BUTTON
+===================================== */
+
+.chat-button {
+    width: 38px;
+    height: 38px;
+
+    margin-top: 17px;
+    margin-left: auto;
+    margin-right: 5px;
+
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background-color: #E8452E;
+    color: #FFFFFF;
+
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12);
+}
+
+.chat-button i {
+    width: 35px;
+    height: 35px;
+
+    stroke-width: 1.5;
+    fill: #E8452E;
+}
+
+
+/* =====================================
+   RESPONSIVE
+===================================== */
+
+@media (min-width: 394px) {
+
+    .main-container {
+        margin: 0 auto;
+    }
+
+}

@@ -4,169 +4,294 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>입덕볶이 결제 완료</title>
 
-    <title>결제 완료</title>
-
-    <!-- Google Fonts -->
+    <!-- Noto Sans KR -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="css/payment_finish.css">
-
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
+
+    <link rel="stylesheet" href="css/payment_finish.css">
 </head>
 
 <body>
 
-<div class="container">
+    <div class="main-container">
 
-    <!-- HEADER -->
-    <header class="header">
+        <!-- HEADER -->
+        <header class="header">
 
-        <a href="index.html" class="logo">
-            <img src="images/logo.png" alt="로고">
-        </a>
+            <a href="../../index.html" class="logo">
+                <img src="img/logo.png" alt="입덕볶이 로고">
+            </a>
 
-        <button class="menu-btn" id="menuOpen" aria-label="메뉴 열기">
-            <i data-lucide="menu"></i>
-        </button>
-
-    </header>
-
-
-    <!-- SIDE MENU BACKGROUND -->
-    <div class="menu-overlay" id="menuOverlay"></div>
-
-    <!-- SIDE MENU -->
-    <nav class="side-menu" id="sideMenu">
-
-        <div class="side-menu-header">
-            <span>MENU</span>
-
-            <button class="menu-close" id="menuClose" aria-label="메뉴 닫기">
-                <i data-lucide="x"></i>
+            <button class="menu-btn" id="menuOpen" aria-label="메뉴 열기">
+                <i data-lucide="menu"></i>
             </button>
+
+        </header>
+
+
+        <!-- 전체 메뉴 -->
+        <div class="menu-overlay" id="menuOverlay">
+
+            <div class="menu-header">
+                <button class="close-btn" id="menuClose" aria-label="메뉴 닫기">
+                    <i data-lucide="x"></i>
+                </button>
+            </div>
+
+            <nav class="menu-list">
+                <a href="../../sub/lists/list.html">떡볶이 메뉴</a>
+                <a href="../../menu_main/introduce/introduce.html">소개</a>
+                <a href="../../menu_main/community/community.html">커뮤니티</a>
+                <a href="../../menu_main/login/login.html">로그인</a>
+            </nav>
+
         </div>
 
-        <ul class="side-menu-list">
-            <li><a href="../lists/list.html">리스트페이지</a></li>
-            <li><a href="../detail/detail.html">상세페이지</a></li>
-            <li><a href="../payment/payment.html">결제페이지</a></li>
-            <li><a href="../payment_finish/payment_finish.html">결제</a></li>
-        </ul>
 
-    </nav>
+        <!-- =========================
+             결제 완료 상단 바
+        ========================== -->
+
+        <section class="complete-header">
+
+            <h1>결제 완료</h1>
+
+            <button type="button" id="closeComplete" aria-label="메인페이지로 이동">
+                <a href="../../index.html"><i data-lucide="x"></i></a>
+            </button>
+
+        </section>
 
 
-    <!-- 결제 완료 제목 -->
-    <div class="complete-header">
+        <main class="complete-content">
 
-        <h1>결제 완료</h1>
+            <!-- =========================
+                 상품 이미지
+            ========================== -->
 
-        <a href="../../index.html" class="complete-close" aria-label="닫기">
-            <i data-lucide="x"></i>
-        </a>
+            <section class="complete-product">
+
+                <div class="complete-image">
+                    <img src="img/original.png" alt="주문한 떡볶이">
+                </div>
+
+            </section>
+
+
+            <!-- =========================
+                 결제 완료 안내
+            ========================== -->
+
+            <section class="complete-message">
+
+                <h2>
+                    결제가 완료 되었습니다
+                    <i data-lucide="check-circle" class="success-icon"></i>
+                </h2>
+
+            </section>
+
+
+            <!-- =========================
+                 주문 내역
+            ========================== -->
+
+            <section class="receipt-card">
+
+                <h3>배달 주문</h3>
+
+                <div class="receipt-info">
+
+                    <div class="receipt-row">
+                        <span>주문한 메뉴</span>
+                        <strong id="orderMenu">00떡볶이 x 1개</strong>
+                    </div>
+
+                    <div class="receipt-row">
+                        <span>할인 금액</span>
+                        <strong id="discountPrice">00000원</strong>
+                    </div>
+
+                    <div class="receipt-row">
+                        <span>배달비</span>
+                        <strong id="deliveryPrice">00000원</strong>
+                    </div>
+
+                    <div class="receipt-row">
+                        <span>주문 일시</span>
+                        <strong id="orderDate">2026.00.00 (요일) 00:00</strong>
+                    </div>
+
+                </div>
+
+
+                <!-- 총 결제 금액 -->
+
+                <div class="receipt-total">
+
+                    <h3>총 금액</h3>
+
+                    <strong id="totalPrice">00000원</strong>
+
+                </div>
+
+            </section>
+
+        </main>
 
     </div>
 
 
-    <main class="complete-content">
+    <!-- =========================
+         JAVASCRIPT
+    ========================== -->
 
-        <!-- 완료 이미지 -->
-        <div class="complete-image">
-            <img src="images/complete.png" alt="결제 완료 이미지">
-        </div>
+    <script>
 
-
-        <!-- 완료 문구 -->
-        <p class="complete-message">
-            결제가 완료 되었습니다.
-        </p>
+        // Lucide 아이콘
+        lucide.createIcons();
 
 
-        <!-- 주문 정보 -->
-        <section class="order-summary">
+        /* =========================
+           HEADER MENU
+        ========================= */
 
-            <h2>배달 주문1</h2>
+        const menuOpen = document.getElementById('menuOpen');
+        const menuClose = document.getElementById('menuClose');
+        const menuOverlay = document.getElementById('menuOverlay');
 
-            <div class="order-details">
+        menuOpen.addEventListener('click', () => {
+            menuOverlay.classList.add('active');
+            document.body.classList.add('menu-open');
+        });
 
-                <div class="detail-row">
-                    <span>주문한 메뉴</span>
-                    <span>000떡볶이 x n개</span>
-                </div>
-
-                <div class="detail-row">
-                    <span>할인 금액</span>
-                    <span>00000원</span>
-                </div>
-
-                <div class="detail-row">
-                    <span>배달비</span>
-                    <span>00000원</span>
-                </div>
-
-                <div class="detail-row">
-                    <span>주문 일시</span>
-                    <span>2026.00.00 (요일) 00:00</span>
-                </div>
-
-            </div>
+        menuClose.addEventListener('click', () => {
+            menuOverlay.classList.remove('active');
+            document.body.classList.remove('menu-open');
+        });
 
 
-            <!-- 총 금액 -->
-            <div class="total-price">
+        /* =========================
+           MAIN PAGE 이동
+        ========================= */
 
-                <strong>총 금액</strong>
-                <strong>00000원</strong>
-
-            </div>
-
-        </section>
-
-    </main>
-
-</div>
+        document.getElementById('closeComplete').addEventListener('click', () => {
+            window.location.href = 'index.html';
+        });
 
 
-<!-- JAVASCRIPT -->
-<script>
+        /* =========================
+           ORDER INFORMATION
+        ========================= */
 
-    // 사이드 메뉴 요소
-    const menuOpen = document.getElementById('menuOpen');
-    const menuClose = document.getElementById('menuClose');
-    const sideMenu = document.getElementById('sideMenu');
-    const menuOverlay = document.getElementById('menuOverlay');
+        const orderData = {
 
-    // 메뉴 열기
-    menuOpen.addEventListener('click', function() {
-        sideMenu.classList.add('active');
-        menuOverlay.classList.add('active');
-        document.body.classList.add('menu-open');
-    });
+            name: '오리지널 입덕볶이',
+            image: './images/menu-original.png',
+            quantity: 1,
+            menuPrice: 14000,
+            discount: 0,
+            delivery: 3000
 
-    // 메뉴 닫기
-    function closeMenu() {
-        sideMenu.classList.remove('active');
-        menuOverlay.classList.remove('active');
-        document.body.classList.remove('menu-open');
-    }
+        };
 
-    menuClose.addEventListener('click', closeMenu);
-    menuOverlay.addEventListener('click', closeMenu);
 
-    // 메뉴 링크 클릭
-    sideMenu.querySelectorAll('a').forEach(function(link) {
-        link.addEventListener('click', closeMenu);
-    });
+        // URL에 주문 정보가 전달되면 사용
+        const params = new URLSearchParams(window.location.search);
 
-    // Lucide 아이콘 실행
-    lucide.createIcons();
+        const menuNames = {
+            original: '오리지널 입덕볶이',
+            cheese: '치즈 입덕볶이',
+            mala: '마라 입덕볶이',
+            rose: '로제 입덕볶이',
+            jjajang: '짜장 입덕볶이'
+        };
 
-</script>
+        const menuImages = {
+            original: './images/menu-original.png',
+            cheese: './images/menu-cheese.png',
+            mala: './images/menu-mala.png',
+            rose: './images/menu-rose.png',
+            jjajang: './images/menu-jjajang.png'
+        };
+
+        const menuId = params.get('menu') || 'original';
+
+        orderData.name = menuNames[menuId] || orderData.name;
+        orderData.image = menuImages[menuId] || orderData.image;
+
+        orderData.quantity = Math.max(
+            1,
+            Number(params.get('quantity')) || 1
+        );
+
+        orderData.menuPrice = Number(
+            params.get('menuPrice')
+        ) || orderData.menuPrice;
+
+        orderData.discount = Number(
+            params.get('discount')
+        ) || 0;
+
+        orderData.delivery = Number(
+            params.get('delivery')
+        ) || orderData.delivery;
+
+
+        /* =========================
+           ORDER DATE
+        ========================= */
+
+        const now = new Date();
+
+        const dateText =
+            now.getFullYear() + '.' +
+            String(now.getMonth() + 1).padStart(2, '0') + '.' +
+            String(now.getDate()).padStart(2, '0') +
+            ' (' +
+            ['일', '월', '화', '수', '목', '금', '토'][now.getDay()] +
+            ') ' +
+            String(now.getHours()).padStart(2, '0') + ':' +
+            String(now.getMinutes()).padStart(2, '0');
+
+
+        /* =========================
+           DISPLAY ORDER INFORMATION
+        ========================= */
+
+        const totalAmount =
+            orderData.menuPrice * orderData.quantity
+            + orderData.delivery
+            - orderData.discount;
+
+        document.getElementById('productImage').src =
+            orderData.image;
+
+        document.getElementById('productImage').alt =
+            orderData.name;
+
+        document.getElementById('orderMenu').textContent =
+            orderData.name + ' x ' + orderData.quantity + '개';
+
+        document.getElementById('discountPrice').textContent =
+            orderData.discount.toLocaleString('ko-KR') + '원';
+
+        document.getElementById('deliveryPrice').textContent =
+            orderData.delivery.toLocaleString('ko-KR') + '원';
+
+        document.getElementById('orderDate').textContent =
+            dateText;
+
+        document.getElementById('totalPrice').textContent =
+            totalAmount.toLocaleString('ko-KR') + '원';
+
+    </script>
 
 </body>
 </html>

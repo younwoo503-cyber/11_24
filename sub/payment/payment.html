@@ -4,297 +4,580 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>입덕볶이 결제</title>
 
-    <title>결제 페이지</title>
-
-    <!-- Google Fonts -->
+    <!-- Noto Sans KR -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="css/payment.css">
-
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
+
+    <link rel="stylesheet" href="css/payment.css">
 </head>
 
 <body>
 
-<div class="container">
+    <div class="main-container">
 
-    <!-- HEADER -->
-    <header class="header">
-        <a href="../../index.html" class="logo">
-            <img src="images/logo.png" alt="로고">
-        </a>
+        <!-- =========================
+             HEADER
+        ========================== -->
 
-        <button class="menu-btn" id="menuOpen" aria-label="메뉴 열기">
-            <i data-lucide="menu"></i>
-        </button>
-    </header>
+        <header class="header">
 
+            <a href="../../index.html" class="logo">
+                <img src="img/logo.png" alt="입덕볶이 로고">
+            </a>
 
-    <!-- SIDE MENU -->
-    <div class="menu-overlay" id="menuOverlay"></div>
-
-    <nav class="side-menu" id="sideMenu">
-
-        <div class="side-menu-header">
-            <span>MENU</span>
-
-            <button class="menu-close" id="menuClose" aria-label="메뉴 닫기">
-                <i data-lucide="x"></i>
+            <button class="menu-btn" id="menuOpen" aria-label="메뉴 열기">
+                <i data-lucide="menu"></i>
             </button>
+
+        </header>
+
+
+        <!-- 전체 메뉴 -->
+        <div class="menu-overlay" id="menuOverlay">
+
+            <div class="menu-header">
+                <button class="close-btn" id="menuClose" aria-label="메뉴 닫기">
+                    <i data-lucide="x"></i>
+                </button>
+            </div>
+
+            <nav class="menu-list">
+                <a href="../lists/list.html">떡볶이 메뉴</a>
+                <a href="../../menu_main/introduce/introduce.html">소개</a>
+                <a href="../../menu_main/community/community.html">커뮤니티</a>
+                <a href="../../menu_main/login/login.html">로그인</a>
+            </nav>
+
         </div>
 
-        <ul class="side-menu-list">
-            <li><a href="../lists/list.html">리스트페이지</a></li>
-            <li><a href="../detail/detail.html">상세페이지</a></li>
-            <li><a href="../payment/payment.html">결제페이지</a></li>
-            <li><a href="../payment_finish/payment_finish.html">결제</a></li>
-        </ul>
 
-    </nav>
+        <main class="payment-content">
 
+            <!-- =========================
+                 주문 상품
+            ========================== -->
 
-    <main class="payment-content">
+            <section class="payment-section product-section">
 
-        <!-- SECTION 1 : 주문 상품 -->
-        <section class="payment-section">
+                <h2 class="section-heading">주문 상품</h2>
 
-            <h2 class="section-title">주문 상품</h2>
+                <div class="product-item">
 
-            <div class="order-product">
+                    <div class="product-image">
+                        <img src="img/original.png" alt="오리지널 입덕볶이">
+                    </div>
 
-                <div class="product-image"></div>
+                    <div class="product-info">
+                        <h3>메뉴 이름</h3>
+                        <p>1개</p>
+                    </div>
 
-                <div class="product-info">
-                    <h3>메뉴 이름</h3>
-                    <p>XX개</p>
+                    <p class="product-price">00000원</p>
+
                 </div>
 
-                <p class="product-price">00000원</p>
-
-            </div>
-
-        </section>
+            </section>
 
 
-        <!-- SECTION 2 : 쿠폰 적용 -->
-        <section class="payment-section">
-
-            <h2 class="section-title">쿠폰 적용</h2>
-
-            <div class="coupon-label">
-                <span>할인 쿠폰</span>
-                <span class="coupon-count">보유 0장 / 적용 0장</span>
-            </div>
-
-            <div class="coupon-input-wrap">
-
-                <input type="text" placeholder="0000원" id="couponInput">
-
-                <button class="coupon-clear" id="couponClear" aria-label="입력 지우기">
-                    <i data-lucide="circle-x"></i>
-                </button>
-
-                <button class="coupon-apply" id="couponApply">
-                    변경
-                </button>
-
-            </div>
-
-        </section>
+            <!-- 구분선 -->
+            <div class="section-divider"></div>
 
 
-        <!-- SECTION 3 : 결제 수단 -->
-        <section class="payment-section">
+            <!-- =========================
+                 쿠폰 적용
+            ========================== -->
 
-            <h2 class="section-title">결제 수단</h2>
+            <section class="payment-section coupon-section">
 
-            <div class="payment-type">
+                <h2 class="section-heading">쿠폰 적용</h2>
 
-                <label class="radio-option">
-                    <input type="radio" name="paymentType" value="pay" >
-                    <span class="radio-custom"></span>
-                    <span>입력떡볶이 페이</span>
-                </label>
-
-                <label class="radio-option">
-                    <input type="radio" name="paymentType" value="normal" checked>
-                    <span class="radio-custom"></span>
-                    <span>일반 결제</span>
-                </label>
-
-            </div>
-
-            <!-- 결제 방법 -->
-            <div class="payment-methods">
-
-                <button class="method-btn">신용카드</button>
-                <button class="method-btn">카카오페이</button>
-                <button class="method-btn">네이버페이</button>
-                <button class="method-btn">토스페이</button>
-                <button class="method-btn">페이코</button>
-                <button class="method-btn">휴대폰 결제</button>
-                <button class="method-btn">애플페이</button>
-                <button class="method-btn">무통장 입금</button>
-
-            </div>
-
-            <!-- 결제 방법 저장 -->
-            <label class="save-payment">
-                <input type="checkbox">
-                <i data-lucide="check-circle"></i>
-                <span>선택한 결제 방법 저장</span>
-            </label>
-
-        </section>
-
-
-        <!-- SECTION 4 : 결제 정보 -->
-        <section class="payment-section">
-
-            <h2 class="section-title">결제 정보</h2>
-
-            <div class="price-list">
-
-                <div class="price-item">
-                    <span>메뉴 금액</span>
-                    <span>00000원</span>
-                </div>
-
-                <div class="price-item">
-                    <span>배달비</span>
-                    <span>00000원</span>
-                </div>
-
-                <div class="price-item">
+                <div class="coupon-label-row">
                     <span>할인 쿠폰</span>
-                    <span>-00000원</span>
+                    <span class="coupon-count">보유 0장 / 적용 0장</span>
                 </div>
 
+                <div class="coupon-input-box">
+
+                    <input
+                        type="text"
+                        id="couponInput"
+                        placeholder="쿠폰번호"
+                    >
+
+                    <button type="button" id="couponClear" aria-label="쿠폰 입력 삭제">
+                        <i data-lucide="x-circle"></i>
+                    </button>
+
+                    <button type="button" id="couponApply" class="coupon-apply-btn">
+                        변경
+                    </button>
+
+                </div>
+
+                <p class="coupon-message" id="couponMessage"></p>
+
+            </section>
+
+
+            <!-- 구분선 -->
+            <div class="section-divider"></div>
+
+
+            <!-- =========================
+                 결제 수단
+            ========================== -->
+
+            <section class="payment-section method-section">
+
+                <h2 class="section-heading">결제 수단</h2>
+
+                <!-- 결제 유형 -->
+
+                <div class="payment-type-list">
+
+                    <label class="payment-type">
+
+                        <input
+                            type="radio"
+                            name="paymentType"
+                            value="iddok"
+                        >
+
+                        <span class="radio-custom"></span>
+                        <span>입덕볶이 페이</span>
+
+                    </label>
+
+
+                    <label class="payment-type">
+
+                        <input
+                            type="radio"
+                            name="paymentType"
+                            value="normal"
+                            checked
+                        >
+
+                        <span class="radio-custom"></span>
+                        <span>일반 결제</span>
+
+                    </label>
+
+                </div>
+
+
+                <!-- 일반 결제 수단 -->
+
+                <div class="payment-methods" id="paymentMethods">
+
+                    <button type="button" class="method-btn" data-method="신용카드">
+                        신용카드
+                    </button>
+
+                    <button type="button" class="method-btn active" data-method="카카오페이">
+                        카카오페이
+                    </button>
+
+                    <button type="button" class="method-btn" data-method="네이버페이">
+                        네이버페이
+                    </button>
+
+                    <button type="button" class="method-btn" data-method="토스페이">
+                        토스페이
+                    </button>
+
+                    <button type="button" class="method-btn" data-method="페이코">
+                        페이코
+                    </button>
+
+                    <button type="button" class="method-btn" data-method="휴대폰 결제">
+                        휴대폰 결제
+                    </button>
+
+                    <button type="button" class="method-btn" data-method="애플페이">
+                        애플페이
+                    </button>
+
+                    <button type="button" class="method-btn" data-method="무통장 입금">
+                        무통장 입금
+                    </button>
+
+                </div>
+
+
+                <!-- 결제 수단 저장 -->
+
+                <label class="save-payment">
+
+                    <input type="checkbox" id="savePayment" checked>
+
+                    <span class="check-custom">
+                        <i data-lucide="check"></i>
+                    </span>
+
+                    <span>선택한 결제 방법 저장</span>
+
+                </label>
+
+            </section>
+
+
+            <!-- 구분선 -->
+            <div class="section-divider"></div>
+
+
+            <!-- =========================
+                 결제 정보
+            ========================== -->
+
+            <section class="payment-section price-section">
+
+                <h2 class="section-heading">결제 정보</h2>
+
+                <div class="price-row">
+                    <span>메뉴 금액</span>
+                    <span id="menuPrice">00000원</span>
+                </div>
+
+                <div class="price-row">
+                    <span>배달비</span>
+                    <span id="deliveryPrice">00000원</span>
+                </div>
+
+                <div class="price-row">
+                    <span>할인 쿠폰</span>
+                    <span id="discountPrice">-00000원</span>
+                </div>
+
+                <div class="total-price-row">
+                    <h3>총 결제 금액</h3>
+                    <strong id="totalPrice">00000원</strong>
+                </div>
+
+            </section>
+
+
+            <!-- 구분선 -->
+            <div class="section-divider"></div>
+
+
+            <!-- =========================
+                 유의사항 및 이용조건
+            ========================== -->
+
+            <section class="terms-section">
+
+                <button type="button" class="terms-toggle" id="termsToggle">
+
+                    <span>유의사항 및 이용조건</span>
+
+                    <i data-lucide="chevron-down" id="termsIcon"></i>
+
+                </button>
+
+                <div class="terms-content" id="termsContent">
+
+                    <p>
+                        1. 주문 및 결제가 완료된 이후에는 주문 변경이 제한될 수 있습니다.
+                    </p>
+
+                    <p>
+                        2. 결제 취소 및 환불은 매장 정책에 따라 처리됩니다.
+                    </p>
+
+                    <p>
+                        3. 쿠폰은 사용 조건에 따라 적용됩니다.
+                    </p>
+
+                </div>
+
+            </section>
+
+
+            <!-- =========================
+                 개인정보 동의
+            ========================== -->
+
+            <div class="agreement">
+
+                <label class="agreement-label">
+
+                    <input type="checkbox" id="agreeCheck">
+
+                    <span class="agreement-icon">
+                        <i data-lucide="check"></i>
+                    </span>
+
+                    <span class="agreement-text">
+                        위 주문내용을 확인했으며, 개인정보 제3자 제공 내용 및 결제에 동의합니다.
+                    </span>
+
+                </label>
+
             </div>
 
-            <div class="total-price">
-                <strong>총 결제 금액</strong>
-                <strong>00000원</strong>
-            </div>
 
-        </section>
+            <!-- =========================
+                 결제하기
+            ========================== -->
+           
+                <section class="pay-button-section">
+                 <a href="../../sub/payment_finish/payment_finish.html">
+                    <button type="button" id="payButton" class="pay-button">
+                        결제하기
+                    </button>
+                </a>
+                </section>
+            
+        </main>
 
-
-        <!-- SECTION 5 : 유의사항 및 이용조건 -->
-        <section class="terms-section">
-
-            <button class="terms-toggle" id="termsToggle">
-
-                <span>유의사항 및 이용조건</span>
-
-                <i data-lucide="chevron-down" id="termsIcon"></i>
-
-            </button>
-
-            <div class="terms-content" id="termsContent">
-                결제 전 유의사항 및 이용조건을 확인해 주세요.
-            </div>
-
-            <label class="agreement">
-                <input type="checkbox" id="agreementCheck">
-
-                <i data-lucide="check-circle"></i>
-
-                <span>
-                    위 주문내용을 확인했으며, 개인정보 제3자 제공 내역 및 결제에 동의합니다.
-                </span>
-            </label>
-
-        </section>
+    </div>
 
 
-        <!-- SECTION 6 : 결제하기 -->
-        <!-- 결제하기 -->
-        <section class="checkout-section">
-        
-            <a href="../payment_finish/payment_finish.html" class="checkout-btn">
-                결제하기
-            </a>
-        
-        </section>
+    <!-- =========================
+         JAVASCRIPT
+    ========================== -->
 
-    </main>
+    <script>
 
-</div>
+        lucide.createIcons();
 
 
-<!-- JAVASCRIPT -->
-<script>
+        /* =========================
+           HEADER MENU
+        ========================== */
 
-    // 사이드 메뉴
-    const menuOpen = document.getElementById('menuOpen');
-    const menuClose = document.getElementById('menuClose');
-    const sideMenu = document.getElementById('sideMenu');
-    const menuOverlay = document.getElementById('menuOverlay');
+        const menuOpen = document.getElementById('menuOpen');
+        const menuClose = document.getElementById('menuClose');
+        const menuOverlay = document.getElementById('menuOverlay');
 
-    menuOpen.addEventListener('click', function() {
-        sideMenu.classList.add('active');
-        menuOverlay.classList.add('active');
-        document.body.classList.add('menu-open');
-    });
+        menuOpen.addEventListener('click', () => {
+            menuOverlay.classList.add('active');
+            document.body.classList.add('menu-open');
+        });
 
-    function closeMenu() {
-        sideMenu.classList.remove('active');
-        menuOverlay.classList.remove('active');
-        document.body.classList.remove('menu-open');
-    }
-
-    menuClose.addEventListener('click', closeMenu);
-    menuOverlay.addEventListener('click', closeMenu);
-
-    sideMenu.querySelectorAll('a').forEach(function(link) {
-        link.addEventListener('click', closeMenu);
-    });
+        menuClose.addEventListener('click', () => {
+            menuOverlay.classList.remove('active');
+            document.body.classList.remove('menu-open');
+        });
 
 
-    // 쿠폰 입력 지우기
-    const couponInput = document.getElementById('couponInput');
-    const couponClear = document.getElementById('couponClear');
+        /* =========================
+           PAYMENT DATA
+        ========================== */
 
-    couponClear.addEventListener('click', function() {
-        couponInput.value = '';
-    });
+        const menuAmount = 14000;
+        const deliveryAmount = 3000;
+
+        let discountAmount = 0;
+
+        const menuPrice = document.getElementById('menuPrice');
+        const deliveryPrice = document.getElementById('deliveryPrice');
+        const discountPrice = document.getElementById('discountPrice');
+        const totalPrice = document.getElementById('totalPrice');
 
 
-    // 결제 방법 선택
-    const methodButtons = document.querySelectorAll('.method-btn');
+        // 가격 표시
+        function updatePaymentPrice() {
 
-    methodButtons.forEach(function(button) {
-        button.addEventListener('click', function() {
+            const total = menuAmount + deliveryAmount - discountAmount;
 
-            methodButtons.forEach(function(item) {
-                item.classList.remove('selected');
+            menuPrice.textContent =
+                menuAmount.toLocaleString('ko-KR') + '원';
+
+            deliveryPrice.textContent =
+                deliveryAmount.toLocaleString('ko-KR') + '원';
+
+            discountPrice.textContent =
+                '-' + discountAmount.toLocaleString('ko-KR') + '원';
+
+            totalPrice.textContent =
+                total.toLocaleString('ko-KR') + '원';
+
+        }
+
+        updatePaymentPrice();
+
+
+        /* =========================
+           COUPON
+        ========================== */
+
+        const couponInput = document.getElementById('couponInput');
+        const couponApply = document.getElementById('couponApply');
+        const couponClear = document.getElementById('couponClear');
+        const couponMessage = document.getElementById('couponMessage');
+
+        // 예시 쿠폰
+        const coupons = {
+            'IDDOK1000': 1000,
+            'WELCOME2000': 2000
+        };
+
+        couponApply.addEventListener('click', () => {
+
+            const couponCode = couponInput.value.trim().toUpperCase();
+
+            if (!couponCode) {
+
+                couponMessage.textContent = '쿠폰번호를 입력해 주세요.';
+                couponMessage.style.color = '#E8452E';
+
+                return;
+
+            }
+
+            if (coupons[couponCode]) {
+
+                discountAmount = coupons[couponCode];
+
+                couponMessage.textContent =
+                    discountAmount.toLocaleString('ko-KR') + '원 할인 쿠폰이 적용되었습니다.';
+
+                couponMessage.style.color = '#E8452E';
+
+                document.querySelector('.coupon-count').textContent =
+                    '보유 0장 / 적용 1장';
+
+                updatePaymentPrice();
+
+            } else {
+
+                discountAmount = 0;
+
+                couponMessage.textContent = '사용할 수 없는 쿠폰입니다.';
+                couponMessage.style.color = '#E8452E';
+
+                updatePaymentPrice();
+
+            }
+
+        });
+
+
+        // 쿠폰 입력 초기화
+        couponClear.addEventListener('click', () => {
+
+            couponInput.value = '';
+            discountAmount = 0;
+
+            couponMessage.textContent = '';
+
+            document.querySelector('.coupon-count').textContent =
+                '보유 0장 / 적용 0장';
+
+            updatePaymentPrice();
+
+        });
+
+
+        /* =========================
+           PAYMENT TYPE
+        ========================== */
+
+        const paymentTypes = document.querySelectorAll(
+            'input[name="paymentType"]'
+        );
+
+        const paymentMethods = document.getElementById('paymentMethods');
+
+        const methodButtons = document.querySelectorAll('.method-btn');
+
+        let selectedMethod = '카카오페이';
+
+
+        // 일반 결제 / 입덕볶이 페이
+        paymentTypes.forEach(type => {
+
+            type.addEventListener('change', () => {
+
+                if (type.value === 'iddok') {
+
+                    paymentMethods.style.display = 'none';
+                    selectedMethod = '입덕볶이 페이';
+
+                } else {
+
+                    paymentMethods.style.display = 'grid';
+
+                    selectedMethod =
+                        document.querySelector('.method-btn.active')?.dataset.method || '';
+
+                }
+
             });
 
-            button.classList.add('selected');
         });
-    });
 
 
-    // 이용조건 열기 / 닫기
-    const termsToggle = document.getElementById('termsToggle');
-    const termsContent = document.getElementById('termsContent');
+        // 결제 수단 선택
+        methodButtons.forEach(button => {
 
-    termsToggle.addEventListener('click', function() {
-        termsContent.classList.toggle('active');
-        termsToggle.classList.toggle('active');
-    });
+            button.addEventListener('click', () => {
+
+                methodButtons.forEach(item => {
+                    item.classList.remove('active');
+                });
+
+                button.classList.add('active');
+
+                selectedMethod = button.dataset.method;
+
+            });
+
+        });
 
 
-    // Lucide 아이콘
-    lucide.createIcons();
+        /* =========================
+           TERMS ACCORDION
+        ========================== */
 
-</script>
+        const termsToggle = document.getElementById('termsToggle');
+        const termsContent = document.getElementById('termsContent');
+        const termsIcon = document.getElementById('termsIcon');
+
+        termsToggle.addEventListener('click', () => {
+
+            const isOpen = termsContent.classList.toggle('active');
+
+            termsIcon.style.transform =
+                isOpen ? 'rotate(180deg)' : 'rotate(0deg)';
+
+        });
+
+
+        /* =========================
+           PAYMENT AGREEMENT
+        ========================== */
+
+        const agreeCheck = document.getElementById('agreeCheck');
+        const payButton = document.getElementById('payButton');
+
+        payButton.addEventListener('click', () => {
+
+            if (!agreeCheck.checked) {
+
+                alert('결제 진행을 위해 개인정보 제공 및 결제에 동의해 주세요.');
+
+                return;
+
+            }
+
+            alert(
+                '결제 정보를 확인했습니다.\n' +
+                '결제 수단: ' + selectedMethod + '\n' +
+                '총 결제 금액: ' + totalPrice.textContent
+            );
+
+        });
+
+    </script>
 
 </body>
 </html>

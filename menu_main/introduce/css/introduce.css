@@ -1,0 +1,401 @@
+
+
+/* =====================================
+   GLOBAL
+===================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100%;
+    min-height: 100vh;
+
+    background-color: #FFF3E5;
+
+    font-family: 'Noto Sans KR', sans-serif;
+    color: #000000;
+}
+
+body.menu-open {
+    overflow: hidden;
+}
+
+button,
+a {
+    font-family: inherit;
+}
+
+button {
+    border: none;
+    cursor: pointer;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+.main-container {
+    width: 100%;
+    max-width: 393px;
+    min-height: 100vh;
+
+    margin: 0 auto;
+
+    background-color: #FFF3E5;
+}
+
+
+/* =====================================
+   HEADER
+===================================== */
+
+.header {
+    width: 100%;
+    height: 60px;
+
+    padding: 0 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    width: 70px;
+    height: auto;
+}
+
+.menu-btn {
+    width: 24px;
+    height: 24px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: none;
+}
+
+.menu-btn i {
+    width: 20px;
+    height: 20px;
+
+    stroke-width: 1.5;
+}
+
+
+/* =====================================
+   MENU OVERLAY
+===================================== */
+
+.menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    width: 100%;
+    max-width: 393px;
+    height: 100vh;
+    height: 100dvh;
+
+    padding: 0 20px;
+
+    background-color: #FFF3E5;
+
+    z-index: 1000;
+
+    display: none;
+}
+
+.menu-overlay.active {
+    display: block;
+}
+
+.menu-header {
+    width: 100%;
+    height: 60px;
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.close-btn {
+    width: 24px;
+    height: 24px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: none;
+}
+
+.close-btn i {
+    width: 22px;
+    height: 22px;
+}
+
+.menu-list a {
+    width: 100%;
+    height: 65px;
+
+    display: flex;
+    align-items: center;
+
+    font-size: 16px;
+    font-weight: 500;
+
+    border-bottom: 1px solid #D0D0D0;
+}
+
+
+/* =====================================
+   ABOUT CONTENT
+===================================== */
+
+.about-content {
+    width: 100%;
+
+    padding: 0 20px;
+}
+
+
+/* =====================================
+   HERO INTRO
+===================================== */
+
+.about-hero {
+    width: 100%;
+    height: 190px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.hero-text {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    gap: 12px;
+}
+
+.hero-text h1 {
+    font-size: 32px;
+    font-weight: 700;
+    text-align: center;
+    line-height: 1.2;
+}
+
+.hero-text p {
+    font-size: 16px;
+    font-weight: 600;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.hero-image {
+    width: 200px;
+    height: 145px;
+    padding-right: 20px;
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-image img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+}
+
+
+/* =====================================
+   BRAND INTRO
+===================================== */
+
+.brand-intro {
+    width: 100%;
+    min-height: 115px;
+
+    margin-top: 15px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.brand-character {
+    width: 90px;
+    height: 95px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.brand-character img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+}
+
+
+/* 세로 구분선 */
+
+.brand-divider {
+    width: 1px;
+    height: 110px;
+
+    flex-shrink: 0;
+
+    background-color: #B8A99A;
+}
+
+
+/* 브랜드 소개 텍스트 */
+
+.brand-text {
+    flex: 1;
+
+    padding-left: 12px;
+}
+
+.brand-text h2 {
+    margin-bottom: 10px;
+
+    font-size: 20px;
+    font-weight: 700;
+
+    text-align: center;
+}
+
+.brand-text p {
+    font-size: 12px;
+    font-weight: 400;
+    text-align: center;
+    line-height: 1.8;
+    word-break: keep-all;
+}
+
+
+/* =====================================
+   FEATURE SECTION
+===================================== */
+
+.feature-section {
+    width: 100%;
+
+    margin-top: 25px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+
+/* =====================================
+   FEATURE CARD
+===================================== */
+
+.feature-card {
+    width: 100%;
+    height: 155px;
+
+    padding: 12px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    background-color: #FFE0C3;
+}
+
+
+/* =====================================
+   FEATURE IMAGE
+===================================== */
+
+.feature-image {
+    width: 105px;
+    height: 105px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.feature-image img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+}
+
+/* =====================================
+   FEATURE TEXT
+===================================== */
+
+.feature-text {
+    flex: 1;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+}
+
+.feature-text h3 {
+    margin-bottom: 12px;
+
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.feature-text p {
+    font-size: 12px;
+    font-weight: 400;
+
+    line-height: 1.6;
+}
+
+
+/* =====================================
+   RESPONSIVE
+===================================== */
+
+@media (min-width: 394px) {
+
+    .main-container {
+        margin: 0 auto;
+    }
+
+}

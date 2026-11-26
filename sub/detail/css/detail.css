@@ -1,0 +1,476 @@
+
+/* =====================================
+   GLOBAL
+===================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100%;
+    min-height: 100vh;
+
+    background-color: #FFF3E5;
+
+    font-family: 'Noto Sans KR', sans-serif;
+    color: #000000;
+}
+
+body.menu-open {
+    overflow: hidden;
+}
+
+button,
+select,
+a {
+    font-family: inherit;
+}
+
+button {
+    border: none;
+    cursor: pointer;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+.main-container {
+    width: 100%;
+    max-width: 393px;
+    min-height: 100vh;
+
+    margin: 0 auto;
+
+    background-color: #FFF3E5;
+
+    padding-bottom: 85px;
+}
+
+
+/* =====================================
+   HEADER
+===================================== */
+
+.header {
+    width: 100%;
+    height: 60px;
+
+    padding: 0 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    width: 70px;
+    height: auto;
+}
+
+.menu-btn {
+    width: 24px;
+    height: 24px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: none;
+    color: #000000;
+}
+
+.menu-btn i {
+    width: 20px;
+    height: 20px;
+    stroke-width: 1.5;
+}
+
+
+/* =====================================
+   MENU OVERLAY
+===================================== */
+
+.menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+
+    width: 100%;
+    max-width: 393px;
+    height: 100vh;
+    height: 100dvh;
+
+    padding: 0 20px;
+
+    background-color: #FFF3E5;
+
+    z-index: 1000;
+
+    display: none;
+}
+
+.menu-overlay.active {
+    display: block;
+}
+
+.menu-header {
+    width: 100%;
+    height: 60px;
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.close-btn {
+    width: 24px;
+    height: 24px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: none;
+}
+
+.close-btn i {
+    width: 22px;
+    height: 22px;
+}
+
+.menu-list a {
+    width: 100%;
+    height: 65px;
+
+    display: flex;
+    align-items: center;
+
+    font-size: 16px;
+    font-weight: 500;
+
+    border-bottom: 1px solid #D0D0D0;
+}
+
+
+/* =====================================
+   DETAIL CONTENT
+===================================== */
+
+.detail-content {
+    width: 100%;
+    padding: 0 20px;
+}
+
+
+/* =====================================
+   PRODUCT IMAGE
+===================================== */
+
+.product-section {
+    width: 100%;
+}
+
+.product-image {
+    width: 100%;
+    height: 165px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.product-image img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+}
+
+
+/* =====================================
+   PRODUCT INFO
+===================================== */
+
+.product-info {
+    width: 100%;
+    margin-top: 3px;
+}
+
+.product-title-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.product-title-row h1 {
+    font-size: 14px;
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+.product-title-row p {
+    font-size: 14px;
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+.product-description {
+    margin-top: 3px;
+
+    font-size: 10px;
+    font-weight: 400;
+
+    color: #555555;
+}
+
+
+/* =====================================
+   OPTION SECTION
+===================================== */
+
+.option-section {
+    width: 100%;
+    margin-top: 12px;
+}
+
+.option-row {
+    width: 100%;
+    min-height: 35px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.option-row h2 {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+
+/* =====================================
+   QUANTITY CONTROL
+===================================== */
+
+.quantity-control {
+    width: 77px;
+    height: 25px;
+
+    border: 1px solid #E0D5C9;
+    border-radius: 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 5px;
+}
+
+.quantity-control button {
+    width: 17px;
+    height: 22px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: none;
+
+    font-size: 18px;
+    font-weight: 500;
+    color: #000000;
+}
+
+.quantity-control button:disabled {
+    color: #CFCFCF;
+    cursor: default;
+}
+
+.quantity-control span {
+    font-size: 13px;
+    font-weight: 600;
+}
+
+
+/* =====================================
+   TASTE SELECT
+===================================== */
+
+.taste-row {
+    border-bottom: 1px solid #D8CFC5;
+    padding-bottom: 7px;
+}
+
+.taste-select {
+    width: 77px;
+    height: 25px;
+
+    padding: 0 7px;
+
+    border: 1px solid #E0D5C9;
+    border-radius: 20px;
+
+    background-color: transparent;
+
+    font-size: 11px;
+    font-weight: 500;
+
+    text-align: center;
+
+    outline: none;
+}
+
+
+/* =====================================
+   RECOMMENDED SIDE MENU
+===================================== */
+
+.side-section {
+    width: 100%;
+    margin-top: 30px;
+}
+
+.side-title {
+    width: 100%;
+
+    margin-bottom: 16px;
+
+    text-align: center;
+
+    font-size: 14px;
+    font-weight: 600;
+}
+
+
+/* =====================================
+   SIDE MENU GRID
+===================================== */
+
+.side-grid {
+    width: 100%;
+
+    display: grid;
+
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    gap: 15px 10px;
+}
+
+.side-card {
+    width: 100%;
+    height: 98px;
+
+    border-radius: 10px;
+
+    background-color: #FF9F43;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+}
+
+
+/* =====================================
+   SIDE MENU IMAGE
+===================================== */
+
+.side-image {
+    width: 100%;
+    height: 65px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.side-image img {
+    width: 90%;
+    height: 100%;
+
+    object-fit: contain;
+}
+
+
+/* =====================================
+   SIDE MENU NAME
+===================================== */
+
+.side-card p {
+    margin-top: 2px;
+
+    font-size: 10px;
+    font-weight: 400;
+
+    color: #FFFFFF;
+}
+
+
+/* =====================================
+   BOTTOM ORDER BUTTON
+===================================== */
+
+.bottom-order {
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 15px;
+
+    width: 100%;
+    max-width: 393px;
+    height: 74px;
+
+    padding: 15px 20px;
+
+    background-color: #FFF3E5;
+
+    z-index: 100;
+}
+
+.bottom-order button {
+    width: 100%;
+    height: 25px;
+
+    border-radius: 7px;
+
+    background-color: #FF9F43;
+
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+
+    color: #FFFFFF;
+
+    font-size: 14px;
+    font-weight: 400;
+}
+
+
+/* =====================================
+   RESPONSIVE
+===================================== */
+
+@media (min-width: 394px) {
+
+    .main-container {
+        margin: 0 auto;
+    }
+
+}

@@ -1,7 +1,7 @@
 
-/* =========================
-   기본 설정
-========================= */
+/* =====================================
+   GLOBAL
+===================================== */
 
 * {
     margin: 0;
@@ -10,8 +10,27 @@
 }
 
 body {
+    width: 100%;
+    min-height: 100vh;
+
+    background-color: #FFF3E5;
+
     font-family: 'Noto Sans KR', sans-serif;
     color: #000000;
+}
+
+body.menu-open {
+    overflow: hidden;
+}
+
+button,
+a {
+    font-family: inherit;
+}
+
+button {
+    border: none;
+    cursor: pointer;
 }
 
 a {
@@ -19,35 +38,30 @@ a {
     color: inherit;
 }
 
-button {
-    font-family: inherit;
-    cursor: pointer;
-    background: none;
+img {
+    display: block;
+    max-width: 100%;
 }
 
-body.menu-open {
-    overflow: hidden;
-}
-
-
-/* =========================
-   전체 컨테이너
-========================= */
-
-.container {
+.main-container {
     width: 100%;
-    max-width: 500px;
+    max-width: 393px;
+    min-height: 100vh;
+
     margin: 0 auto;
+
+    background-color: #FFF3E5;
 }
 
 
-/* =========================
+/* =====================================
    HEADER
-========================= */
+===================================== */
 
 .header {
     width: 100%;
     height: 60px;
+
     padding: 0 20px;
 
     display: flex;
@@ -55,125 +69,109 @@ body.menu-open {
     justify-content: space-between;
 }
 
+.logo {
+    display: flex;
+    align-items: center;
+}
+
 .logo img {
-    display: block;
-    max-height: 40px;
-    width: auto;
+    width: 70px;
+    height: auto;
 }
 
 .menu-btn {
+    width: 24px;
+    height: 24px;
+
     display: flex;
     align-items: center;
     justify-content: center;
-    border: none;
-}
 
-.menu-btn i {
-    width: 24px;
-    height: 24px;
-}
-
-
-/* =========================
-   SIDE MENU
-========================= */
-
-.menu-overlay {
-    position: fixed;
-    inset: 0;
-
-    background-color: rgba(0, 0, 0, 0.5);
-
-    opacity: 0;
-    visibility: hidden;
-    pointer-events: none;
-
-    transition: opacity 0.3s ease, visibility 0.3s ease;
-    z-index: 1000;
-}
-
-.menu-overlay.active {
-    opacity: 1;
-    visibility: visible;
-    pointer-events: auto;
-}
-
-.side-menu {
-    position: fixed;
-    top: 0;
-    right: max(0px, calc((100vw - 500px) / 2));
-
-    width: min(66.666vw, 333px);
-    height: 100vh;
-    height: 100dvh;
-
-    padding: 30px 24px;
-    background-color: #ffffff;
-
-    transform: translateX(100%);
-    visibility: hidden;
-    pointer-events: none;
-
-    transition: transform 0.3s ease, visibility 0.3s ease;
-
-    z-index: 1001;
-    overflow-y: auto;
-}
-
-.side-menu.active {
-    transform: translateX(0);
-    visibility: visible;
-    pointer-events: auto;
-}
-
-.side-menu-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    padding-bottom: 25px;
-    border-bottom: 1px solid #dddddd;
-
-    font-size: 20px;
-    font-weight: 600;
-}
-
-.menu-close {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: none;
-}
-
-.menu-close i {
-    width: 24px;
-    height: 24px;
-}
-
-.side-menu-list {
-    list-style: none;
-    margin-top: 20px;
-}
-
-.side-menu-list li {
-    border-bottom: 1px solid #eeeeee;
-}
-
-.side-menu-list li a {
-    display: block;
-    padding: 22px 0;
-
-    font-size: 18px;
-    font-weight: 500;
+    background: none;
     color: #000000;
 }
 
+.menu-btn i {
+    width: 20px;
+    height: 20px;
+    stroke-width: 1.5;
+}
 
-/* =========================
-   결제 완료 헤더
-========================= */
+
+/* =====================================
+   MENU OVERLAY
+===================================== */
+
+.menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+
+    width: 100%;
+    max-width: 393px;
+    height: 100vh;
+    height: 100dvh;
+
+    padding: 0 20px;
+
+    background-color: #FFF3E5;
+
+    z-index: 1000;
+
+    display: none;
+}
+
+.menu-overlay.active {
+    display: block;
+}
+
+.menu-header {
+    width: 100%;
+    height: 60px;
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.close-btn {
+    width: 24px;
+    height: 24px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: none;
+}
+
+.close-btn i {
+    width: 22px;
+    height: 22px;
+}
+
+.menu-list a {
+    width: 100%;
+    height: 65px;
+
+    display: flex;
+    align-items: center;
+
+    font-size: 16px;
+    font-weight: 500;
+
+    border-bottom: 1px solid #D0D0D0;
+}
+
+
+/* =====================================
+   COMPLETE HEADER
+===================================== */
 
 .complete-header {
+    position: relative;
+
     width: 100%;
     height: 35px;
 
@@ -181,35 +179,43 @@ body.menu-open {
     align-items: center;
     justify-content: center;
 
-    position: relative;
-
-    background-color: #DCDCDC;
+    background-color: #E8452E;
+    color: #FFFFFF;
 }
 
 .complete-header h1 {
-    font-size: 14px;
-    font-weight: 500;
-    color: #000000;
+    font-size: 13px;
+    font-weight: 400;
 }
 
-.complete-close {
+.complete-header button {
     position: absolute;
-    right: 12px;
+    right: 20px;
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    width: 20px;
+    height: 20px;
 
     display: flex;
     align-items: center;
     justify-content: center;
+
+    background: none;
+    color: #FFFFFF;
 }
 
-.complete-close i {
-    width: 18px;
-    height: 18px;
+.complete-header button i {
+    width: 17px;
+    height: 17px;
+    stroke-width: 1.5;
 }
 
 
-/* =========================
-   결제 완료 콘텐츠
-========================= */
+/* =====================================
+   COMPLETE CONTENT
+===================================== */
 
 .complete-content {
     width: 100%;
@@ -217,101 +223,172 @@ body.menu-open {
 }
 
 
-/* 완료 이미지 */
+/* =====================================
+   PRODUCT IMAGE
+===================================== */
+
+.complete-product {
+    width: 100%;
+
+    margin-top: 27px;
+
+    display: flex;
+    justify-content: center;
+}
 
 .complete-image {
-    width: 92px;
-    height: 90px;
+    width: 120px;
+    height: 105px;
 
-    margin: 20px auto 0;
-
-    background-color: #DCDCDC;
-    border-radius: 12px;
-    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .complete-image img {
-    display: block;
     width: 100%;
     height: 100%;
-    object-fit: cover;
+
+    object-fit: contain;
 }
 
 
-/* 완료 문구 */
+/* =====================================
+   COMPLETE MESSAGE
+===================================== */
 
 .complete-message {
-    margin-top: 20px;
-
-    text-align: center;
-
-    font-size: 14px;
-    font-weight: 500;
-    color: #000000;
-}
-
-
-/* =========================
-   주문 정보
-========================= */
-
-.order-summary {
     width: 100%;
 
-    margin-top: 15px;
-    padding: 10px 10px 0;
+    margin-top: 22px;
+    margin-bottom: 17px;
 
-    border: 1px solid #BDBDBD;
-    border-radius: 12px;
-}
-
-
-/* 주문 제목 */
-
-.order-summary h2 {
-    font-size: 14px;
-    font-weight: 500;
-    color: #000000;
-
-    margin-bottom: 18px;
-}
-
-
-/* 주문 상세 정보 */
-
-.order-details {
     display: flex;
-    flex-direction: column;
-    gap: 5px;
+    align-items: center;
+    justify-content: center;
 }
 
-.detail-row {
+.complete-message h2 {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.success-icon {
+    width: 14px;
+    height: 14px;
+
+    color: #E8452E;
+    stroke-width: 1.7;
+}
+
+
+/* =====================================
+   RECEIPT CARD
+===================================== */
+
+.receipt-card {
+    width: 100%;
+
+    padding: 8px 3px 12px;
+
+    border: 1px solid #E8452E;
+    border-radius: 10px;
+}
+
+
+/* =====================================
+   RECEIPT TITLE
+===================================== */
+
+.receipt-card > h3 {
+    margin-bottom: 20px;
+
+    font-size: 12px;
+    font-weight: 500;
+
+    border-bottom: 1px solid #E8452E;
+
+    padding-bottom: 5px;
+}
+
+
+
+/* =====================================
+   RECEIPT INFORMATION
+===================================== */
+
+.receipt-info {
+    width: 100%;
+}
+
+.receipt-row {
+    width: 100%;
+
     display: flex;
     align-items: center;
     justify-content: space-between;
 
-    font-size: 12px;
+    margin-bottom: 5px;
+
+    font-size: 10px;
     font-weight: 400;
-    color: #777777;
 }
 
-.detail-row span:last-child {
+.receipt-row span {
+    color: #888888;
+}
+
+.receipt-row strong {
+    font-size: 10px;
+    font-weight: 500;
     color: #000000;
+
     text-align: right;
 }
 
 
-/* 총 금액 */
+/* =====================================
+   TOTAL PRICE
+===================================== */
 
-.total-price {
+.receipt-total {
+    width: 100%;
+
+    margin-top: 25px;
+
     display: flex;
     align-items: center;
     justify-content: space-between;
 
-    margin-top: 25px;
-    padding-bottom: 12px;
+    border-top: 1px solid #E8452E;
 
-    font-size: 16px;
-    font-weight: 700;
-    color: #000000;
+    padding-top: 5px;
 }
+
+.receipt-total h3 {
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.receipt-total strong {
+    font-size: 13px;
+    font-weight: 700;
+}
+
+
+/* =====================================
+   RESPONSIVE
+===================================== */
+
+@media (min-width: 394px) {
+
+    .main-container {
+        margin: 0 auto;
+    }
+
+}
+

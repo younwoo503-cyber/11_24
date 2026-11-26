@@ -1,137 +1,207 @@
 
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>입덕볶이 메뉴</title>
 
-    <title>리스트 페이지</title>
-
-    <!-- Google Fonts -->
+    <!-- Noto Sans KR -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="css/list.css">
-
-    <!-- Lucide Icons -->
+    <!-- Lucide -->
     <script src="https://unpkg.com/lucide@latest"></script>
+
+    <link rel="stylesheet" href="css/list.css">
 </head>
 
 <body>
 
-    <div class="container">
+    <div class="main-container">
 
         <!-- HEADER -->
         <header class="header">
+
             <a href="../../index.html" class="logo">
-                <img src="images/logo.png" alt="로고">
+                <img src="img/logo.png" alt="입덕볶이 로고">
             </a>
 
             <button class="menu-btn" id="menuOpen" aria-label="메뉴 열기">
                 <i data-lucide="menu"></i>
             </button>
+
         </header>
 
 
-        <!-- SIDE MENU BACKGROUND -->
-        <div class="menu-overlay" id="menuOverlay"></div>
+        <!-- 전체 메뉴 -->
+        <div class="menu-overlay" id="menuOverlay">
 
-        <!-- SIDE MENU -->
-        <nav class="side-menu" id="sideMenu">
-
-            <div class="side-menu-header">
-                <span>MENU</span>
-
-                <button class="menu-close" id="menuClose" aria-label="메뉴 닫기">
+            <div class="menu-header">
+                <button class="close-btn" id="menuClose" aria-label="메뉴 닫기">
                     <i data-lucide="x"></i>
                 </button>
             </div>
 
-            <ul class="side-menu-list">
-                <li><a href="../lists/list.html">리스트페이지</a></li>
-                <li><a href="../detail/detail.html">상세페이지</a></li>
-                <li><a href="../payment/payment.html">결제페이지</a></li>
-                <li><a href="../payment_finish/payment_finish.html">결제</a></li>
-            </ul>
+            <nav class="menu-list">
+                <a href="../lists/list.html">떡볶이 메뉴</a>
+                <a href="../../menu_main/introduce/introduce.html">소개</a>
+                <a href="../../menu_main/community/community.html">커뮤니티</a>
+                <a href="../../menu_main/login/login.html">로그인</a>
+            </nav>
 
-        </nav>
-
-
-        <!-- CATEGORY MENU -->
-        <nav class="category-menu">
-
-            <a href="#" class="category-item active">떡볶이</a>
-            <a href="#" class="category-item">튀김</a>
-            <a href="#" class="category-item">사이드</a>
-            <a href="#" class="category-item">사리추가</a>
-
-        </nav>
+        </div>
 
 
-        <!-- PRODUCT LIST -->
-        <main class="product-section">
+        <main>
 
-            <div class="product-list">
+            <!-- CATEGORY -->
+            <nav class="category-nav">
 
-                <!-- PRODUCT 1 -->
-                <a href="#" class="product-item">
-                    <div class="product-image"></div>
-                    <h3>떡볶이 타이틀 작성</h3>
-                    <p>00000원</p>
-                </a>
+                <button class="category-btn active" data-category="tteokbokki">
+                    떡볶이
+                </button>
 
-                <!-- PRODUCT 2 -->
-                <a href="#" class="product-item">
-                    <div class="product-image"></div>
-                    <h3>떡볶이 타이틀 작성</h3>
-                    <p>00000원</p>
-                </a>
+                <button class="category-btn" data-category="fried">
+                    튀김
+                </button>
 
-                <!-- PRODUCT 3 -->
-                <a href="#" class="product-item">
-                    <div class="product-image"></div>
-                    <h3>떡볶이 타이틀 작성</h3>
-                    <p>00000원</p>
-                </a>
+                <button class="category-btn" data-category="side">
+                    사이드
+                </button>
 
-                <!-- PRODUCT 4 -->
-                <a href="#" class="product-item">
-                    <div class="product-image"></div>
-                    <h3>떡볶이 타이틀 작성</h3>
-                    <p>00000원</p>
-                </a>
+                <button class="category-btn" data-category="extra">
+                    사리추가
+                </button>
 
-                <!-- PRODUCT 5 -->
-                <a href="#" class="product-item">
-                    <div class="product-image"></div>
-                    <h3>떡볶이 타이틀 작성</h3>
-                    <p>00000원</p>
-                </a>
+            </nav>
 
-                <!-- PRODUCT 6 -->
-                <a href="#" class="product-item">
-                    <div class="product-image"></div>
-                    <h3>떡볶이 타이틀 작성</h3>
-                    <p>00000원</p>
-                </a>
 
-                <!-- PRODUCT 7 -->
-                <a href="#" class="product-item">
-                    <div class="product-image"></div>
-                    <h3>떡볶이 타이틀 작성</h3>
-                    <p>00000원</p>
-                </a>
+            <!-- MENU LIST -->
+            <section class="menu-section">
 
-                <!-- PRODUCT 8 -->
-                <a href="#" class="product-item">
-                    <div class="product-image"></div>
-                    <h3>떡볶이 타이틀 작성</h3>
-                    <p>00000원</p>
-                </a>
+                <div class="menu-grid" id="menuGrid">
+                
+                    <!-- =====================
+                         떡볶이
+                    ====================== -->
+                
+                    <article class="menu-card" data-category="tteokbokki">
+                         <a href="../../sub/detail/detail.html">
+                            <div class="menu-image">
+                                <img src="img/original.png" alt="오리지널 입덕볶이">
+                            </div>
+                            <div class="menu-info">
+                                <h3>오리지널 입덕볶이</h3>
+                                <p>00000원</p>
+                            </div>
+                        </a>
+                    </article>
+                
+                    <article class="menu-card" data-category="tteokbokki">
+                        <a href="../../sub/detail/detail.html">
+                            <div class="menu-image">
+                                <img src="img/original.png" alt="치즈 입덕볶이">
+                            </div>
+                            <div class="menu-info">
+                                <h3>치즈 입덕볶이</h3>
+                                <p>00000원</p>
+                            </div>
+                        </a>
+                    </article>
+                
+                    <article class="menu-card" data-category="tteokbokki">
+                        <a href="../../sub/detail/detail.html">
+                            <div class="menu-image">
+                                <img src="img/original.png" alt="마라 입덕볶이">
+                            </div>
+                            <div class="menu-info">
+                                <h3>마라 입덕볶이</h3>
+                                <p>00000원</p>
+                            </div>
+                        </a>
+                    </article>
+                
+                    <article class="menu-card" data-category="tteokbokki">
+                        <a href="../../sub/detail/detail.html">
+                            <div class="menu-image">
+                                <img src="img/original.png" alt="로제 입덕볶이">
+                            </div>
+                            <div class="menu-info">
+                                <h3>로제 입덕볶이</h3>
+                                <p>00000원</p>
+                            </div>
+                        </a>
+                    </article>
+                
+                    <article class="menu-card" data-category="tteokbokki">
+                        <a href="../../sub/detail/detail.html">
+                            <div class="menu-image">
+                                <img src="img/original.png" alt="짜장 입덕볶이">
+                            </div>
+                            <div class="menu-info">
+                                <h3>짜장 입덕볶이</h3>
+                                <p>00000원</p>
+                            </div>
+                        </a>
+                    </article>
+                
+                
+                    <!-- =====================
+                         튀김
+                    ====================== -->
+                
+                    <article class="menu-card" data-category="fried">
+                        <a href="../../sub/detail/detail.html">
+                            <div class="menu-image">
+                                <img src="img/fry.png" alt="튀김 메뉴">
+                            </div>
+                            <div class="menu-info">
+                                <h3>메뉴 이름</h3>
+                                <p>00000원</p>
+                            </div>
+                        </a>
+                    </article>
+                
+                
+                    <!-- =====================
+                         사이드
+                    ====================== -->
+                
+                    <article class="menu-card" data-category="side">
+                        <a href="../../sub/detail/detail.html">
+                            <div class="menu-image">
+                                <img src="img/fry.png" alt="사이드 메뉴">
+                            </div>
+                            <div class="menu-info">
+                                <h3>메뉴 이름</h3>
+                                <p>00000원</p>
+                            </div>
+                        </a>
+                    </article>
+                
+                
+                    <!-- =====================
+                         사리추가
+                    ====================== -->
+                
+                    <article class="menu-card" data-category="extra">
+                        <a href="../../sub/detail/detail.html">
+                            <div class="menu-image">
+                                <img src="img/fry.png" alt="추가 사리">
+                            </div>
+                            <div class="menu-info">
+                                <h3>메뉴 이름</h3>
+                                <p>00000원</p>
+                            </div>
+                        </a>
+                    </article>
+                
+                </div>
 
-            </div>
+            </section>
 
         </main>
 
@@ -141,41 +211,63 @@
     <!-- JAVASCRIPT -->
     <script>
 
-        // 메뉴 요소 선택
+        // Lucide 아이콘
+        lucide.createIcons();
+
+
+        /* =========================
+           HEADER MENU
+        ========================= */
+
         const menuOpen = document.getElementById('menuOpen');
         const menuClose = document.getElementById('menuClose');
-        const sideMenu = document.getElementById('sideMenu');
         const menuOverlay = document.getElementById('menuOverlay');
 
-        // 메뉴 열기
-        menuOpen.addEventListener('click', function() {
-            sideMenu.classList.add('active');
+        menuOpen.addEventListener('click', () => {
             menuOverlay.classList.add('active');
             document.body.classList.add('menu-open');
         });
 
-        // 메뉴 닫기
-        function closeMenu() {
-            sideMenu.classList.remove('active');
+        menuClose.addEventListener('click', () => {
             menuOverlay.classList.remove('active');
             document.body.classList.remove('menu-open');
-        }
-
-        // X 버튼 클릭
-        menuClose.addEventListener('click', closeMenu);
-
-        // 메뉴 바깥 영역 클릭
-        menuOverlay.addEventListener('click', closeMenu);
-
-        // 메뉴 링크 클릭
-        const sideMenuLinks = sideMenu.querySelectorAll('a');
-
-        sideMenuLinks.forEach(function(link) {
-            link.addEventListener('click', closeMenu);
         });
 
-        // Lucide 아이콘 실행
-        lucide.createIcons();
+
+        /* =========================
+           CATEGORY TAB
+        ========================= */
+
+        const categoryButtons = document.querySelectorAll('.category-btn');
+        const menuCards = document.querySelectorAll('.menu-card');
+
+        categoryButtons.forEach(button => {
+
+            button.addEventListener('click', () => {
+
+                const selectedCategory = button.dataset.category;
+
+                // 선택된 탭 활성화
+                categoryButtons.forEach(item => {
+                    item.classList.remove('active');
+                });
+
+                button.classList.add('active');
+
+                // 해당 카테고리 메뉴만 표시
+                menuCards.forEach(card => {
+
+                    if (card.dataset.category === selectedCategory) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+
+                });
+
+            });
+
+        });
 
     </script>
 

@@ -1,0 +1,249 @@
+
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>입덕볶이 소개</title>
+
+    <!-- Noto Sans KR -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <link rel="stylesheet" href="css/introduce.css">
+</head>
+
+<body>
+
+    <div class="main-container">
+
+        <!-- =========================
+             HEADER
+        ========================== -->
+
+        <header class="header">
+
+            <a href="../../index.html" class="logo">
+                <img src="img/logo.png" alt="입덕볶이 로고">
+            </a>
+
+            <button class="menu-btn" id="menuOpen" aria-label="메뉴 열기">
+                <i data-lucide="menu"></i>
+            </button>
+
+        </header>
+
+
+        <!-- =========================
+             MENU OVERLAY
+        ========================== -->
+
+        <div class="menu-overlay" id="menuOverlay">
+
+            <div class="menu-header">
+
+                <button class="close-btn" id="menuClose" aria-label="메뉴 닫기">
+                    <i data-lucide="x"></i>
+                </button>
+
+            </div>
+
+            <nav class="menu-list">
+                <a href="../../sub/lists/list.html">떡볶이 메뉴</a>
+                <a href="../../menu_main/introduce/introduce.html">소개</a>
+                <a href="../../menu_main/community/community.html">커뮤니티</a>
+                <a href="../../menu_main/login/login.html">로그인</a>
+            </nav>
+
+        </div>
+
+
+        <!-- =========================
+             ABOUT CONTENT
+        ========================== -->
+
+        <main class="about-content">
+
+
+            <!-- =========================
+                 HERO INTRO
+            ========================== -->
+
+            <section class="about-hero">
+
+                <div class="hero-text">
+
+                    <h1>
+                        입덕볶이를<br>
+                        소개합니다!
+                    </h1>
+
+                    <p>
+                        한 입 먹으면 멈출 수 없는 매력
+                    </p>
+
+                </div>
+
+                <div class="hero-image">
+                    <img src="img/bring_character.png" alt="떡볶이를 들고 있는 입덕볶이 캐릭터">
+             
+                </div>
+
+            </section>
+
+
+            <!-- =========================
+                 BRAND INTRO
+            ========================== -->
+
+            <section class="brand-intro">
+
+                <div class="brand-character">
+                    <img src="img/original_character.png" alt="입덕볶이 캐릭터">
+                    
+                </div>
+
+                <div class="brand-divider"></div>
+
+                <div class="brand-text">
+
+                    <h2>입덕볶이는</h2>
+
+                    <p>
+                        어서와 입덕볶이로 입덕할 준비를 해요!<br>
+                        모두가 좋아하는 특별한 맛으로 반갑습니다.
+                    </p>
+
+                </div>
+
+            </section>
+
+
+            <!-- =========================
+                 BRAND FEATURES
+            ========================== -->
+
+            <section class="feature-section">
+
+
+                <!-- 중독적인 맛 -->
+
+                <article class="feature-card">
+
+                    <div class="feature-image">
+                        <img src="img/pepper.png" alt="빨간 고추">
+                
+                    </div>
+
+                    <div class="feature-text">
+
+                        <h3>중독적인 맛</h3>
+
+                        <p>
+                            한 입 먹으면 멈출 수 없는<br>
+                            매콤달콤한 소스
+                        </p>
+
+                    </div>
+
+                </article>
+
+
+                <!-- 신선한 재료 -->
+
+                <article class="feature-card">
+
+                    <div class="feature-image">
+                        <img src="img/plant.png" alt="새싹">
+                        
+                    </div>
+
+                    <div class="feature-text">
+
+                        <h3>신선한 재료</h3>
+
+                        <p>
+                            좋은 재료로 더 맛있고<br>
+                            든든하게
+                        </p>
+
+                    </div>
+
+                </article>
+
+
+                <!-- 다양한 메뉴 -->
+
+                <article class="feature-card">
+
+                    <div class="feature-image">
+                        <img src="img/heart.png" alt="하트">
+                       
+                    </div>
+
+                    <div class="feature-text">
+
+                        <h3>다양한 메뉴</h3>
+
+                        <p>
+                            취향대로 골라 먹는<br>
+                            다채로운 떡볶이 라인업!
+                        </p>
+
+                    </div>
+
+                </article>
+
+
+            </section>
+
+        </main>
+
+    </div>
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================== -->
+
+    <script>
+
+        // Lucide 아이콘
+        lucide.createIcons();
+
+
+        /* =========================
+           HEADER MENU
+        ========================= */
+
+        const menuOpen = document.getElementById('menuOpen');
+        const menuClose = document.getElementById('menuClose');
+        const menuOverlay = document.getElementById('menuOverlay');
+
+
+        // 메뉴 열기
+        menuOpen.addEventListener('click', () => {
+
+            menuOverlay.classList.add('active');
+            document.body.classList.add('menu-open');
+
+        });
+
+
+        // 메뉴 닫기
+        menuClose.addEventListener('click', () => {
+
+            menuOverlay.classList.remove('active');
+            document.body.classList.remove('menu-open');
+
+        });
+
+    </script>
+
+</body>
+</html>
